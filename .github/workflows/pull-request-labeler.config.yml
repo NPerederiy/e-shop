@@ -1,0 +1,23 @@
+Automation:
+  - .github/workflows/**/*
+
+ApiGateways:
+  - src/ApiGateways/**/*
+
+BuildingBlocks:
+  - src/BuildingBlocks/**/*
+
+Identity:
+  - src/Services/Identity/**/*
+  
+Catalog:
+  - src/Services/Catalog/**/*
+
+Basket:
+  - src/Services/Basket/**/*
+
+Ordering:
+  - src/Services/Ordering/**/*
+
+Payment:
+  - src/Services/Payment/**/*
