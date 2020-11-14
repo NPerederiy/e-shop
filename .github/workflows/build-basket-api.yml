@@ -1,0 +1,27 @@
+name: Basket-API
+
+on:
+  push:
+    paths:
+    - 'src/BuildingBlocks/**'
+    - 'src/Services/Basket/**'
+
+  pull_request:
+    paths:
+    - 'src/BuildingBlocks/**'
+    - 'src/Services/Basket/**'
+    
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Build
+      run: dotnet build --configuration Release
+      working-directory: ./src/Services/Basket/Basket.API
