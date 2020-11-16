@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Catalog.Core.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +10,6 @@ namespace Catalog.Core.Application.Interfaces
         DbSet<CatalogItem> CatalogItems { get; set; }
         DbSet<CatalogType> CatalogTypes { get; set; }
 
-        Task<Guid> SaveChangesAsync();
+        Task<int> SaveChangesAsync();
     }
 }

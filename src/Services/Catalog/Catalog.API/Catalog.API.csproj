@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Catalog.Core.Application\Catalog.Core.Application.csproj" />
     <ProjectReference Include="..\Catalog.Core.Domain\Catalog.Core.Domain.csproj" />
+    <ProjectReference Include="..\Catalog.Infrastructure.Persistence\Catalog.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
