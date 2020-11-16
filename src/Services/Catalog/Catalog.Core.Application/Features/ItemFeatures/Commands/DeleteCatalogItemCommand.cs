@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Catalog.Core.Application.Interfaces;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Catalog.Core.Application.Features.ItemFeatures.Commands
 {
@@ -21,7 +22,7 @@ namespace Catalog.Core.Application.Features.ItemFeatures.Commands
 
             public async Task<Guid> Handle(DeleteCatalogItemCommand command, CancellationToken cancellationToken)
             {
-                var entity = await _context.CatalogItems.FindAsync(command.Id, cancellationToken);
+                var entity = await _context.CatalogItems.FirstOrDefaultAsync(x => x.Id == command.Id, cancellationToken);
                 if (entity == null) return default;
 
                 _context.CatalogItems.Remove(entity);
