@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Catalog.Core.Application.Interfaces;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Catalog.Core.Application.Features.BrandFeatures.Commands
 {
@@ -21,7 +22,7 @@ namespace Catalog.Core.Application.Features.BrandFeatures.Commands
 
             public async Task<Guid> Handle(DeleteBrandCommand command, CancellationToken cancellationToken)
             {
-                var entity = await _context.Brands.FindAsync(command.Id, cancellationToken);
+                var entity = await _context.Brands.FirstOrDefaultAsync(x => x.Id == command.Id, cancellationToken);
                 if (entity == null) return default;
 
                 _context.Brands.Remove(entity);

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Catalog.API.Controllers
 {
-    [ApiController]
+    [ApiVersion("1.0")]
     public class ItemController : ApiControllerBase
     {
         /// <summary>
@@ -39,7 +39,7 @@ namespace Catalog.API.Controllers
         /// <summary>
         /// Updates catalog item based on id.
         /// </summary>
-        [HttpPut("[action]")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, UpdateCatalogItemCommand command)
         {
             if (id != command.Id) return BadRequest();

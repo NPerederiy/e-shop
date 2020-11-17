@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Catalog.Core.Application.Interfaces;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Catalog.Core.Application.Features.TypeFeatures.Commands
 {
@@ -22,7 +23,7 @@ namespace Catalog.Core.Application.Features.TypeFeatures.Commands
 
             public async Task<Guid> Handle(UpdateCatalogTypeCommand command, CancellationToken cancellationToken)
             {
-                var entity = await _context.CatalogTypes.FindAsync(command.Id, cancellationToken);
+                var entity = await _context.CatalogTypes.FirstOrDefaultAsync(x => x.Id == command.Id, cancellationToken);
                 if (entity == null) return default;
 
                 entity.Name = command.Name;

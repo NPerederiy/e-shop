@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Catalog.API</name>
+    </assembly>
+    <members>
+        <member name="M:Catalog.API.Controllers.BrandController.GetAll">
+            <summary>
+            Gets all brands.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Controllers.BrandController.GetById(System.Guid)">
+            <summary>
+            Gets brand by id.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Controllers.BrandController.Create(Catalog.Core.Application.Features.BrandFeatures.Commands.CreateBrandCommand)">
+            <summary>
+            Creates a new brand.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Controllers.BrandController.Update(System.Guid,Catalog.Core.Application.Features.BrandFeatures.Commands.UpdateBrandCommand)">
+            <summary>
+            Updates brand based on id.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Controllers.BrandController.Delete(System.Guid)">
+            <summary>
+            Deletes brand based on id.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Controllers.ItemController.GetAll">
+            <summary>
+            Gets all catalog items.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Controllers.ItemController.GetById(System.Guid)">
+            <summary>
+            Gets catalog item by id.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Controllers.ItemController.Create(Catalog.Core.Application.Features.ItemFeatures.Commands.CreateCatalogItemCommand)">
+            <summary>
+            Creates a new catalog item.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Controllers.ItemController.Update(System.Guid,Catalog.Core.Application.Features.ItemFeatures.Commands.UpdateCatalogItemCommand)">
+            <summary>
+            Updates catalog item based on id.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Controllers.ItemController.Delete(System.Guid)">
+            <summary>
+            Deletes catalog item based on id.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Controllers.TypeController.GetAll">
+            <summary>
+            Gets all catalog types.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Controllers.TypeController.GetById(System.Guid)">
+            <summary>
+            Gets catalog type by id.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Controllers.TypeController.Create(Catalog.Core.Application.Features.TypeFeatures.Commands.CreateCatalogTypeCommand)">
+            <summary>
+            Creates a new catalog type.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Controllers.TypeController.Update(System.Guid,Catalog.Core.Application.Features.TypeFeatures.Commands.UpdateCatalogTypeCommand)">
+            <summary>
+            Updates catalog type based on id.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Controllers.TypeController.Delete(System.Guid)">
+            <summary>
+            Deletes catalog type based on id.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+        </member>
+        <member name="M:Catalog.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+        </member>
+    </members>
+</doc>

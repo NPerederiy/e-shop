@@ -30,7 +30,7 @@ namespace Catalog.Core.Application.Features.ItemFeatures.Commands
 
             public async Task<Guid> Handle(UpdateCatalogItemCommand command, CancellationToken cancellationToken)
             {
-                var entity = await _context.CatalogItems.FindAsync(command.Id, cancellationToken);
+                var entity = await _context.CatalogItems.FirstOrDefaultAsync(x => x.Id == command.Id, cancellationToken);
                 if (entity == null ||
                     !await _context.Brands.AnyAsync(x => x.Id == command.CatalogBrandId, cancellationToken) ||
                     !await _context.CatalogTypes.AnyAsync(x => x.Id == command.CatalogTypeId, cancellationToken))
