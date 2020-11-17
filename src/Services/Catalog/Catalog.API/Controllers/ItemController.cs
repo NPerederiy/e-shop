@@ -6,8 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Catalog.API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
     public class ItemController : ApiControllerBase
     {
         /// <summary>
