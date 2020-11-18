@@ -1,10 +1,10 @@
 ﻿using System;
+using Catalog.Core.Domain.Common;
 
-namespace Catalog.Domain.Entities
+namespace Catalog.Core.Domain.Entities
 {
-    public class CatalogItem
+    public class CatalogItem : EntityBase
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
