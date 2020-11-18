@@ -17,8 +17,4 @@
     <ProjectReference Include="..\Catalog.Core.Domain\Catalog.Core.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>
