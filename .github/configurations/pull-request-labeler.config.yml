@@ -21,3 +21,9 @@ Ordering:
 
 Payment:
   - src/Services/Payment/**/*
+
+WebSPA:
+  - src/Clients/ReactApp/**/*
+
+React.js:
+  - src/Clients/ReactApp/**/*
