@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 
-import image from '../../../assets/loading-100.png';
+import image from './../../../assets/loading-100.png';
 import './loader.scss';
 
 const Loader = ({ message }) => (
@@ -15,4 +15,4 @@ const Loader = ({ message }) => (
     </Box>
 );
 
-export { Loader };
+export default Loader;

@@ -1,4 +1,4 @@
-import { Catalog } from './pages/catalog/catalog';
+import Catalog from './pages/catalog';
 
 const App = () => {
   return (

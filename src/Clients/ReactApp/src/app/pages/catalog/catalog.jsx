@@ -1,8 +1,8 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 
-import { Loader } from '../../components/loader/loader';
-import { ProductCard } from '../../components/product-card/product-card';
+import Loader from './../../components/loader';
+import ProductCard from './../../components/product-card';
 
 import './catalog.scss';
 
@@ -64,4 +64,4 @@ const Catalog = () => {
     );
 }
 
-export { Catalog };
+export default Catalog;

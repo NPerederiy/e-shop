@@ -3,7 +3,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
-import defaultImage from '../../../assets/camera-100.png';
+import defaultImage from './../../../assets/camera-100.png';
 import './product-card.scss';
 
 const ProductCard = (props) => {
@@ -39,4 +39,4 @@ const ProductCard = (props) => {
     );
 }
 
-export { ProductCard }
+export default ProductCard;
