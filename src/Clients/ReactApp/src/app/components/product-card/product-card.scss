@@ -37,8 +37,12 @@
 }
 
 .product-card-price-old{
-    font-size: $old-price-font-size;
     text-decoration-line: line-through;
     text-decoration-color: $palette-red;
-    padding: 0 4px;
+}
+
+.product-card-price-old,
+.product-card-currency-code{
+    font-size: $old-price-font-size;
+    padding-left: 4px;
 }
