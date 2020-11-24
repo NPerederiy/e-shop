@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 
-// import Loader from './../../components/loader';
+import Loader from './../../components/loader';
 import ProductCard from './../../components/product-card';
 
 import './catalog.scss';
@@ -58,8 +58,7 @@ const Catalog = () => {
                     {items.map(item => (<ProductCard key={item.id} {...item} />))}
                 </Box>
             ) : (
-                    // <Loader message='Loading components...' />
-                    <></>
+                    <Loader message='Loading components...' />
                 )}
         </Box>
     );
