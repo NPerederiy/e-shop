@@ -15,9 +15,9 @@ const ProductCard = (props) => {
     return (
         <Box id='product-card-container'>
             {img ? (
-                <img src={img} className='product-card-image' alt='product-image' />
+                <img src={img} className='product-card-image' alt='product'/>
             ) : (
-                    <img src={defaultImage} className='product-card-image placeholder' alt='image-is-missing' />
+                    <img src={defaultImage} className='product-card-image placeholder' alt='product'/>
                 )}
             <p className='product-card-header'>{name}</p>
             {discount ? (
