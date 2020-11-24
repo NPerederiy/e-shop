@@ -1,0 +1,48 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/sizes.scss';
+
+#product-card-container{
+    display: grid;
+    grid-template-rows: 240px 1fr;
+
+    background-color: $primary-light;
+    color: $primary-dark;
+
+    min-height: 400px;
+    min-width: 240px;
+    max-width: 260px;
+    padding: 16px;
+
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 0px #c8c8c8;
+}
+
+.product-card-image{
+    align-self: center;
+    justify-self: center;
+    
+    &.placeholder{
+        height: $default-photo-icon-size;
+        opacity: 0.2;
+    }
+}
+
+.product-card-header{
+    font-size: $primary-font-size;
+}
+
+.product-card-price{
+    font-size: $current-price-font-size;
+    font-weight: $price-font-weight;
+}
+
+.product-card-price-old{
+    text-decoration-line: line-through;
+    text-decoration-color: $palette-red;
+}
+
+.product-card-price-old,
+.product-card-currency-code{
+    font-size: $old-price-font-size;
+    padding-left: 4px;
+}
