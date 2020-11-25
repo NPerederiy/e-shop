@@ -1,12 +1,21 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 
-import Loader from './../../components/loader';
-import ProductCard from './../../components/product-card';
+import Loader from '../../components/loader';
+import HeaderPanel from '../../components/header-panel';
+import ProductCard from '../../components/product-card';
 
 import './catalog.scss';
 
-const Catalog = () => {
+const handleAddToCartAction = () => {
+    console.log('add to cart');
+}
+
+const handleSearchAction = (event) => {
+    console.log(event.target.value);
+}
+
+const Catalog = (props) => {
 
     // TODO: replace with api call
     const items = [
@@ -52,15 +61,28 @@ const Catalog = () => {
     ];
 
     return (
-        <Box id='catalog-page'>
-            {items ? (
-                <Box id='catalog-container'>
-                    {items.map(item => (<ProductCard key={item.id} {...item} />))}
-                </Box>
-            ) : (
-                    <Loader message='Loading components...' />
-                )}
-        </Box>
+        <>
+            <HeaderPanel
+                className='stick-to-top'
+                text='e-shop'
+                searchAction={handleSearchAction}
+            />
+            <Box id='catalog-page'>
+                {items ? (
+                    <Box id='catalog-container'>
+                        {items.map(item => (
+                            <ProductCard
+                                key={item.id}
+                                addToCartAction = {handleAddToCartAction}
+                                {...item}
+                            />
+                        ))}
+                    </Box>
+                ) : (
+                        <Loader message='Loading components...' />
+                    )}
+            </Box>
+        </>
     );
 }
 

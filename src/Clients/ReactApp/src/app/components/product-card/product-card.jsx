@@ -6,20 +6,35 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import defaultImage from './../../../assets/camera-100.png';
 import './product-card.scss';
 
-const ProductCard = (props) => {
-    const { name, price, img, discount } = props;
+const handleCardClick = () => {
+    console.log('click on card');
+}
 
-    const currencyCode = 'UAH'; // TODO: take the code from a server
-    const addToCartLabel = 'Add to cart'; // TODO: take the label from a localization dictionary
-
-    return (
+const ProductCard = ({
+    name,
+    price,
+    img,
+    discount,
+    currencyCode = 'UAH',
+    buttonLabel = 'Add to cart',
+    addToCartAction
+}) => (
         <Box id='product-card-container'>
-            {img ? (
-                <img src={img} className='product-card-image' alt='product'/>
-            ) : (
-                    <img src={defaultImage} className='product-card-image placeholder' alt='product'/>
-                )}
-            <p className='product-card-header'>{name}</p>
+
+            <img
+                src={img ?? defaultImage}
+                className={img ?
+                    'product-card-image interactive' :
+                    'product-card-image placeholder interactive'}
+                alt='product'
+                onClick={handleCardClick}
+            />
+            <p
+                onClick={handleCardClick}
+                className='product-card-header interactive'
+            >
+                {name}
+            </p>
             {discount ? (
                 <Box>
                     <Box component="span" className='product-card-price'>{discount}</Box>
@@ -27,16 +42,21 @@ const ProductCard = (props) => {
                     <Box component="span" className='product-card-currency-code'>{currencyCode}</Box>
                 </Box>
             ) : (
-                <Box>
-                    <Box component="span" className='product-card-price'>{price}</Box>
-                    <Box component="span" className='product-card-currency-code'>{currencyCode}</Box>
-                </Box>
-            )}
-            <Button variant='contained' color='primary' size='large' startIcon={<AddShoppingCartIcon />}>
-                {addToCartLabel}
+                    <Box>
+                        <Box component="span" className='product-card-price'>{price}</Box>
+                        <Box component="span" className='product-card-currency-code'>{currencyCode}</Box>
+                    </Box>
+                )}
+            <Button
+                className='product-card-button'
+                variant='contained'
+                size='large'
+                startIcon={<AddShoppingCartIcon />}
+                onClick={addToCartAction}
+            >
+                {buttonLabel}
             </Button>
         </Box>
     );
-}
 
 export default ProductCard;

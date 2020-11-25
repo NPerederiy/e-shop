@@ -1,0 +1,30 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/sizes.scss';
+
+.stick-to-top{
+    position: sticky;
+    top: 0;
+}
+
+.MuiAppBar-colorPrimary {
+    color: $primary-light !important;
+    background-color: $app-primary-color !important;
+}
+
+.MuiToolbar-root{
+    justify-content: flex-end;
+}
+
+.MuiIconButton-root{
+    color: $primary-light !important;
+}
+
+.MuiTypography-root {
+    position: absolute;
+    left: 0;
+    padding-left: 24px;
+}
+
+.MuiInputBase-root {
+    color: $primary-light !important;
+}

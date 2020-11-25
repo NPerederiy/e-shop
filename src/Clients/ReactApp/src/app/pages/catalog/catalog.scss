@@ -6,6 +6,7 @@
     color: $primary-dark;
     display: flex;
     justify-content: center;
+    padding: 20px 0;
 }
 
 #catalog-container{
@@ -13,6 +14,11 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items: center;
     gap: 1.5em;
+}
+
+.stick-to-top{
+    position: sticky !important;
+    top: 0;
 }
 
 @media (max-width: 1220px){
