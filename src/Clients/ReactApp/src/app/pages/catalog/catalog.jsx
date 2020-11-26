@@ -15,7 +15,7 @@ const handleSearchAction = (event) => {
     console.log(event.target.value);
 }
 
-const Catalog = (props) => {
+const CatalogPage = (props) => {
 
     // TODO: replace with api call
     const items = [
@@ -63,7 +63,6 @@ const Catalog = (props) => {
     return (
         <>
             <HeaderPanel
-                className='stick-to-top'
                 text='e-shop'
                 searchAction={handleSearchAction}
             />
@@ -86,4 +85,4 @@ const Catalog = (props) => {
     );
 }
 
-export default Catalog;
+export default CatalogPage;

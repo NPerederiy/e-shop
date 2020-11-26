@@ -20,24 +20,23 @@ const handleBasketOpen = () => {
 const HeaderPanel = ({ 
     text, 
     user, 
-    className, 
     searchAction
 }) => {
 
     return (
-        <AppBar position="static" className={className}>
-            <Toolbar>
-                <Typography variant="h6" color="inherit">
+        <AppBar position="static" className='app-header-panel stick-to-top'>
+            <Toolbar className='app-header-tools'>
+                <Typography className='app-header-text' variant="h6" color="inherit">
                     {text}
                 </Typography>
 
                 <SearchBar searchAction={searchAction}/>
 
-                <IconButton onClick={handleBasketOpen} aria-label="Basket">
+                <IconButton className='app-header-button' onClick={handleBasketOpen} aria-label="Basket">
                     <ShoppingCartIcon />
                 </IconButton>
                 {user ?? (
-                    <IconButton onClick={handleProfileOpen} aria-label="Basket">
+                    <IconButton className='app-header-button' onClick={handleProfileOpen} aria-label="Basket">
                         <AccountCircleIcon />
                     </IconButton>
                 )}

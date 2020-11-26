@@ -25,6 +25,7 @@
     padding: 1px 1px 1px 0;
     width: 12ch;
     transition: width 1s ease;
+    color: $primary-light !important;
 
     &:hover, &:focus{
         width: 20ch;
