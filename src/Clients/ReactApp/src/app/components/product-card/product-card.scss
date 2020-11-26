@@ -15,6 +15,10 @@
 
     border-radius: 10px;
     box-shadow: 0px 0px 8px 0px #c8c8c8;
+
+    .interactive{
+        cursor: pointer;
+    }
 }
 
 .product-card-image{
@@ -45,4 +49,9 @@
 .product-card-currency-code{
     font-size: $old-price-font-size;
     padding-left: 4px;
+}
+
+.product-card-button {
+    color: $primary-light !important;
+    background-color: $app-secondary-color !important;
 }
