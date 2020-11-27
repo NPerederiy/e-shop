@@ -1,8 +1,19 @@
-import Catalog from './pages/catalog';
+import CatalogPage from './pages/catalog';
+import AuthPage from './pages/authentication';
+
+import './app.scss'
 
 const App = () => {
+  const isCatalog = false;
+
   return (
-    <Catalog />
+    <>
+      {isCatalog ? (
+        <CatalogPage />
+      ) : (
+          <AuthPage />
+        )}
+    </>
   );
 }
 
