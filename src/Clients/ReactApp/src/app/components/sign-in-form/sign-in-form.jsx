@@ -28,13 +28,21 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const SignInForm = () => {
+const SignInForm = ({
+    signInAction,
+    signUpRedirectAction,
+    forgotPasswordAction
+}) => {
     const classes = useStyles();
+
+    const signInLabel = 'Sign in';
+    const signUpRedirectLabel = "Don't have an account? Sign Up";
+    const forgotPasswordLabel = 'Forgot password?';
 
     return (
         <>
             <Typography component="h1" variant="h5">
-                Sign in
+                {signInLabel}
             </Typography>
             <form className={classes.form} noValidate>
                 <TextField
@@ -69,18 +77,19 @@ const SignInForm = () => {
                     variant="contained"
                     color="primary"
                     className={classes.submit}
+                    onClick={signInAction}
                 >
-                    Sign In
-          </Button>
+                    {signInLabel}
+                </Button>
                 <Grid container>
                     <Grid item xs>
-                        <Link href="#" variant="body2">
-                            Forgot password?
-              </Link>
+                        <Link onClick={forgotPasswordAction} href="#" variant="body2">
+                            {forgotPasswordLabel}
+                        </Link>
                     </Grid>
                     <Grid item>
-                        <Link href="#" variant="body2">
-                            {"Don't have an account? Sign Up"}
+                        <Link onClick={signUpRedirectAction} href="#" variant="body2">
+                            {signUpRedirectLabel}
                         </Link>
                     </Grid>
                 </Grid>

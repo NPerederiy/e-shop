@@ -39,8 +39,32 @@ const useStyles = makeStyles((theme) => ({
 
 const AuthPage = () => {
     const classes = useStyles();
+    let firstTime = true;
 
-    const firstTime = true;
+    const signInRedirectAction = () => {
+        console.log('redirect to sign in');
+        firstTime = false; // TODO: update the state
+    }
+
+    const signUpRedirectAction = () => {
+        console.log('redirect to sign up');
+        firstTime = true; // TODO: update the state
+    }
+
+    const signInAction = () => {
+        console.log('sign in');
+        // TODO: Implement the action.
+    }
+
+    const signUpAction = () => {
+        console.log('sign up');
+        // TODO: Implement the action.
+    }
+
+    const forgetPasswordAction = () => {
+        console.log('forget password');
+        // TODO: Implement the action.
+    }
 
     return (
       <Grid container component="main" className={classes.root}>
@@ -52,9 +76,16 @@ const AuthPage = () => {
               <LockOutlinedIcon />
             </Avatar>
             {firstTime? (
-                <SignUpForm />
+                <SignUpForm 
+                    signUpAction={signUpAction}
+                    signInRedirectAction={signInRedirectAction}
+                />
             ) : (
-                <SignInForm />
+                <SignInForm 
+                    signInAction={signInAction}
+                    signUpRedirectAction={signUpRedirectAction}
+                    forgotPasswordAction={forgetPasswordAction}
+                />
             )}
               <Box mt={5}>
                 <Copyright />

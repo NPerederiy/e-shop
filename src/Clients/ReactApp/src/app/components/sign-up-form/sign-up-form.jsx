@@ -28,13 +28,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const SignUpForm = () => {
+const SignUpForm = ({
+    signUpAction,
+    signInRedirectAction
+}) => {
     const classes = useStyles();
+
+    const signUpLabel = 'Sign up';
+    const signInRedirectLabel = 'Already have an account? Sign in';
 
     return (
         <>
             <Typography component="h1" variant="h5">
-                Sign up
+                {signUpLabel}
             </Typography>
             <form className={classes.form} noValidate>
                 <Grid container spacing={2}>
@@ -97,13 +103,14 @@ const SignUpForm = () => {
                     variant="contained"
                     color="primary"
                     className={classes.submit}
+                    onClick={signUpAction}
                 >
-                    Sign Up
+                    {signUpLabel}
                 </Button>
                 <Grid container justify="flex-end">
                     <Grid item>
-                        <Link href="#" variant="body2">
-                            Already have an account? Sign in
+                        <Link onClick={signInRedirectAction} href="#" variant="body2">
+                            {signInRedirectLabel}
                         </Link>
                     </Grid>
                 </Grid>
