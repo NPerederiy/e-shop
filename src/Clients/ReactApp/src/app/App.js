@@ -4,7 +4,7 @@ import AuthPage from './pages/authentication';
 import './app.scss'
 
 const App = () => {
-  const isCatalog = false;
+  const isCatalog = true;
 
   return (
     <>
