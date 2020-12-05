@@ -1,23 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@material-ui/core/Box';
 
 import Loader from '../../components/loader';
 import HeaderPanel from '../../components/header-panel';
 import ProductCard from '../../components/product-card';
-
 import './catalog.scss';
 
-const handleAddToCartAction = () => {
-    console.log('add to cart');
-}
+const CatalogPage = ({
+    appName
+}) => {
+    const [category, setCategory] = useState();
+    const [brand, setBrand] = useState();
+    const [displayedItems, setDisplayedItems] = useState([]);
 
-const handleSearchAction = (event) => {
-    console.log(event.target.value);
-}
+    const handleCategorySelection = (event) => {
+        console.log(`id: ${event.target.id} category: ${event.target.innerText}`);
+        setCategory(event.target.id);
+        console.log(category);
 
-const CatalogPage = (props) => {
+        // TODO: Display by category
+    }
+
+    const handleBrandSelection = (event) => {
+        console.log(`id: ${event.target.id} brand: ${event.target.innerText}`);
+        setBrand(event.target.id);
+        console.log(brand);
+
+        // TODO: Filter by brand
+    }
+
+    const handleSearchAction = (event) => {
+        let searchPattern = event.target.value.toLowerCase();
+        console.log(searchPattern);
+
+        if (items) {
+            setDisplayedItems(items.filter(x => x.name.toLowerCase().includes(searchPattern)));
+        }
+    }
+
+    const handleAddToCartAction = () => {
+        console.log('add to cart');
+    }
 
     // TODO: replace with api call
+    // TODO: update the 'displayedItems'
     const items = [
         {
             id: 0,
@@ -78,19 +104,45 @@ const CatalogPage = (props) => {
         }
     ];
 
+    const categories = [{
+        id: 1,
+        name: 'Keyboards'
+    }, {
+        id: 2,
+        name: 'Mice'
+    }, {
+        id: 3,
+        name: 'Mice accessories'
+    }];
+
+    const brands = [{
+        id: 1,
+        name: 'Apple'
+    }, {
+        id: 2,
+        name: 'GamePro'
+    }, {
+        id: 3,
+        name: 'Razer'
+    }];
+
     return (
         <>
             <HeaderPanel
-                text='e-shop'
+                text={appName}
+                categories={categories}
+                brands={brands}
+                categorySelection={handleCategorySelection}
+                brandSelection={handleBrandSelection}
                 searchAction={handleSearchAction}
             />
             <Box id='catalog-page'>
                 {items ? (
                     <Box id='catalog-container'>
-                        {items.map(item => (
+                        {displayedItems.map(item => (
                             <ProductCard
                                 key={item.id}
-                                addToCartAction = {handleAddToCartAction}
+                                addToCartAction={handleAddToCartAction}
                                 {...item}
                             />
                         ))}
