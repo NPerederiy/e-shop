@@ -1,0 +1,18 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/sizes.scss';
+
+.select-button {
+    background-color: $primary-light-15 !important;
+    color: $primary-light !important;
+    border-radius: $primary-border-radius !important;
+    padding: 9px 8px !important;
+    margin: 0 6px !important;
+
+    &:hover{
+        background-color: $primary-light-25 !important;
+    }
+}
+
+.selector-paper {
+    margin-right: 2px;
+}

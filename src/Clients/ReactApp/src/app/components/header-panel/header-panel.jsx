@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
+import Select from '../select';
 import SearchBar from '../search-bar';
 import './header-panel.scss';
 
@@ -17,12 +18,15 @@ const handleBasketOpen = () => {
     console.log('basket');
 }
 
-const HeaderPanel = ({ 
-    text, 
-    user, 
-    searchAction
+const HeaderPanel = ({
+    text,
+    user,
+    categories,
+    brands,
+    categorySelection,
+    brandSelection,
+    searchAction,
 }) => {
-
     return (
         <AppBar position="static" className='app-header-panel stick-to-top'>
             <Toolbar className='app-header-tools'>
@@ -30,7 +34,10 @@ const HeaderPanel = ({
                     {text}
                 </Typography>
 
-                <SearchBar searchAction={searchAction}/>
+                <Select name='Categories' options={categories} optionSelection={categorySelection} />
+                <Select name='Brands' options={brands} optionSelection={brandSelection}/>
+
+                <SearchBar searchAction={searchAction} />
 
                 <IconButton className='app-header-button' onClick={handleBasketOpen} aria-label="Basket">
                     <ShoppingCartIcon />

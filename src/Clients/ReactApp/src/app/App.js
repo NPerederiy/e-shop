@@ -4,12 +4,13 @@ import AuthPage from './pages/authentication';
 import './app.scss'
 
 const App = () => {
+  const appName = 'e-shop';
   const isCatalog = true;
 
   return (
     <>
       {isCatalog ? (
-        <CatalogPage />
+        <CatalogPage appName={appName}/>
       ) : (
           <AuthPage />
         )}
