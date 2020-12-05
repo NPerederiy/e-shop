@@ -1,0 +1,57 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/sizes.scss';
+
+#basket-item-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+
+    &:hover {
+        box-shadow: 0px 0px 8px 0px #c8c8c8;
+    }
+}
+
+.basket-item-image {
+    align-self: center;
+    justify-self: center;
+    object-fit: contain;
+    width: 120px;
+    height: 120px !important;
+    
+    &.placeholder {
+        object-fit: scale-down;
+        opacity: 0.2;
+    }
+}
+
+.basket-item-description {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .price-and-count {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.basket-item-header{
+    font-size: $primary-font-size;
+}
+
+.basket-item-price{
+    font-size: $current-price-font-size;
+    font-weight: $price-font-weight;
+}
+
+.basket-item-price-old{
+    text-decoration-line: line-through;
+    text-decoration-color: $palette-red;
+}
+
+.basket-item-price-old,
+.basket-item-currency-code{
+    font-size: $old-price-font-size;
+    padding-left: 4px;
+}
