@@ -1,0 +1,46 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/sizes.scss';
+
+.basket-popper-container {
+    max-height: 600px;
+    overflow-x: auto;
+    position: relative;
+
+    border-radius: $secondary-border-radius;
+    box-shadow: 0px 0px 8px 0px #c8c8c8;
+}
+
+.basket-popper-item {
+    padding: 8px 16px 8px 16px;
+}
+
+.basket-popper-total-price {
+    text-align: end;
+    font-size: $popper-footer-font-size;
+    margin-bottom: 12px;
+
+    .price{
+        margin-left: 8px;
+        font-size: $total-price-font-size;
+        font-weight: $price-font-weight;
+    }
+}
+
+.basket-popper-button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+
+.basket-popper-make-order-button {
+    color: $primary-light !important;
+    background-color: $app-secondary-color !important;
+}
+
+.basket-popper-footer {
+    padding: 8px 16px 16px;
+    margin-top: 2px;
+
+    background-color: $primary-light;
+    box-shadow: 0px 0px 8px 0px #c8c8c8;
+}
