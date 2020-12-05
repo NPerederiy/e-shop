@@ -72,10 +72,6 @@ const Basket = ({
 }) => {
     const [totalPrice, settotalPrice] = React.useState(0);
     React.useEffect(() => {
-        calcTotalPrice()
-    }, [items])
-
-    const calcTotalPrice = () => {
         let price = 0;
 
         items.forEach(item => {
@@ -83,7 +79,7 @@ const Basket = ({
         })
 
         settotalPrice(price);
-    }
+    }, [items])
 
     return (
         <Box className='basket-popper-container'>
