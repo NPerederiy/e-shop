@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 const AuthPage = () => {
     const classes = useStyles();
-    let firstTime = true;
+    let firstTime = false;
 
     const signInRedirectAction = () => {
         console.log('redirect to sign in');
