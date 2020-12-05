@@ -16,16 +16,24 @@
     justify-self: center;
     object-fit: contain;
     width: 120px;
-    height: 120px;
+    height: 120px !important;
     
     &.placeholder {
-        height: $default-photo-icon-size;
+        object-fit: scale-down;
         opacity: 0.2;
     }
 }
 
 .basket-item-description {
     max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .price-and-count {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .basket-item-header{

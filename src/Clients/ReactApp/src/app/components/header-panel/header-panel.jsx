@@ -35,12 +35,12 @@ const HeaderPanel = ({
         console.log('basket');
         setBasketOpen((prevOpen) => !prevOpen);
     }
-    
+
     const handleClose = (event) => {
         // if (anchorRef.current && anchorRef.current.contains(event.target)) {
         //     return;
         // }
-    
+
         setBasketOpen(false);
     };
 
@@ -52,33 +52,33 @@ const HeaderPanel = ({
                 </Typography>
 
                 <Select name='Categories' options={categories} optionSelection={categorySelection} />
-                <Select name='Brands' options={brands} optionSelection={brandSelection}/>
+                <Select name='Brands' options={brands} optionSelection={brandSelection} />
 
                 <SearchBar searchAction={searchAction} />
 
                 <IconButton
-                    ref={anchorRef} 
-                    className='app-header-button' 
-                    onClick={handleBasketOpen} 
+                    ref={anchorRef}
+                    className='app-header-button'
+                    onClick={handleBasketOpen}
                 >
                     <ShoppingCartIcon />
                 </IconButton>
-                <Popper open={basketOpen} anchorEl={anchorRef.current} role={undefined} placement='bottom-end' transition disablePortal>
-                {({ TransitionProps, placement }) => (
-                    <Grow
-                        {...TransitionProps}
-                        style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-                    >
-                        <Paper>
-                            <ClickAwayListener onClickAway={handleClose}>
-                                <Basket />
-                            </ClickAwayListener>
-                        </Paper>
-                    </Grow>
-                )}
-            </Popper>
+                <Popper open={basketOpen} anchorEl={anchorRef.current} role={undefined} placement='bottom-start' transition disablePortal>
+                    {({ TransitionProps, placement }) => (
+                        <Grow
+                            {...TransitionProps}
+                            style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                        >
+                            <Paper>
+                                <ClickAwayListener onClickAway={handleClose}>
+                                    <Basket />
+                                </ClickAwayListener>
+                            </Paper>
+                        </Grow>
+                    )}
+                </Popper>
                 {user ?? (
-                    <IconButton 
+                    <IconButton
                         className='app-header-button'
                         onClick={handleProfileOpen}
                     >

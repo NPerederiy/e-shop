@@ -1,0 +1,30 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/sizes.scss';
+
+.counter-text-field,
+.counter-button {
+    height: 36px !important;
+}
+
+.counter-text-field {
+    margin: 0 6px !important;
+    width: 60px !important;
+    
+    .MuiOutlinedInput-input {
+        padding: 8px !important;
+    }
+}
+
+.counter-button {
+    color: $primary-light !important;
+    background-color: $app-secondary-color !important;
+
+    &.MuiButton-label,
+    &.MuiButton-text {
+        padding: 0px !important;
+    }
+
+    &.MuiButton-root {
+        min-width: 30px !important;
+    }
+}
