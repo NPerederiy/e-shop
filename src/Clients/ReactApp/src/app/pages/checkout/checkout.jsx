@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -8,18 +9,15 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 
 import Copyright from '../../components/copyright';
 import AddressForm from '../../components/address-form';
 import PaymentForm from '../../components/payment-form';
 import Review from '../../components/checkout-review';
+import './checkout.scss';
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: 'relative',
-  },
   layout: {
     width: 'auto',
     marginLeft: theme.spacing(2),
@@ -42,14 +40,11 @@ const useStyles = makeStyles((theme) => ({
   },
   stepper: {
     padding: theme.spacing(3, 0, 5),
+    backgroundColor: ' #8bc34a',
   },
   buttons: {
     display: 'flex',
     justifyContent: 'flex-end',
-  },
-  button: {
-    marginTop: theme.spacing(3),
-    marginLeft: theme.spacing(1),
   },
 }));
 
@@ -68,7 +63,9 @@ function getStepContent(step) {
   }
 }
 
-export default function CheckoutPage() {
+export default function CheckoutPage({
+    appName
+}) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -83,10 +80,10 @@ export default function CheckoutPage() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="absolute" color="default" className={classes.appBar}>
+      <AppBar position="static" className='app-header-panel stick-to-top'>
         <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Company name
+          <Typography className='app-header-text' variant="h6" color="inherit" noWrap>
+            {appName}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -95,7 +92,7 @@ export default function CheckoutPage() {
           <Typography component="h1" variant="h4" align="center">
             Checkout
           </Typography>
-          <Stepper activeStep={activeStep} className={classes.stepper}>
+          <Stepper activeStep={activeStep} className='checkout-stepper'>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
@@ -116,21 +113,20 @@ export default function CheckoutPage() {
             ) : (
               <React.Fragment>
                 {getStepContent(activeStep)}
-                <div className={classes.buttons}>
+                <Box className='checkout-button-row'>
                   {activeStep !== 0 && (
-                    <Button onClick={handleBack} className={classes.button}>
+                    <Button onClick={handleBack}>
                       Back
                     </Button>
                   )}
                   <Button
-                    variant="contained"
-                    color="primary"
+                    variant='contained'
                     onClick={handleNext}
-                    className={classes.button}
+                    className='checkout-button'
                   >
                     {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
                   </Button>
-                </div>
+                </Box>
               </React.Fragment>
             )}
           </React.Fragment>

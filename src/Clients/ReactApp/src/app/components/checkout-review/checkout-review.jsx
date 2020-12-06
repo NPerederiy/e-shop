@@ -6,14 +6,45 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 
-const products = [
-  { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
-  { name: 'Product 2', desc: 'Another thing', price: '$3.45' },
-  { name: 'Product 3', desc: 'Something else', price: '$6.51' },
-  { name: 'Product 4', desc: 'Best thing of all', price: '$14.11' },
-  { name: 'Shipping', desc: '', price: 'Free' },
-];
-const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+const testItems = [
+    {
+        id: 0,
+        name: 'Клавиатура Apple Magic Keyboard RU+Numeric Keypad (White) MQ052RS/A',
+        price: '5199',
+        img: 'https://i.citrus.ua/imgcache/size_800/uploads/shop/0/d/0d3b423126eedb0a1e72941da3a25c91.jpg',
+        count: 1
+    },
+    {
+        id: 1,
+        name: 'Клавиатура Apple Magic Keyboard RU (Space Grey) MRMH2',
+        price: '5399',
+        img: 'https://i.citrus.ua/imgcache/size_800/uploads/shop/d/a/daaeb5392dd2597f0aeeee0cbfe6a6bf.jpg',
+        count: 1
+    },
+    {
+        id: 5,
+        name: 'Игровая клавиатура Razer Black Widow X Chroma Mercury Edition (RZ03-01762000-R3M1)',
+        price: '3199',
+        img: 'https://i.citrus.ua/imgcache/size_800/uploads/shop/1/f/1fc1d398a0c00dc193d119ce0ff46e35.jpg',
+        discount: '2999',
+        count: 2
+    },
+    {
+        id: 7,
+        name: 'Игровая клавиатура Razer Huntsman mini Purple Switch (RZ03-03390100-R3M1)',
+        price: '3199',
+        img: 'https://i.citrus.ua/imgcache/size_800/uploads/shop/0/1/014ad9203cae6644956356a7b580dc63.jpg',
+        discount: '3799',
+        count: 1
+    },
+    { 
+        name: 'Shipping', 
+        price: 0,
+        count: 0
+    },
+]
+
+const addresses = ['1 Lorem Ipsum Drive', 'Reactville', 'Anytown', '99999', 'USA'];
 const payments = [
   { name: 'Card type', detail: 'Visa' },
   { name: 'Card holder', detail: 'Mr John Smith' },
@@ -33,8 +64,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Review() {
-  const classes = useStyles();
+export default function Review({
+    basketItems = testItems,
+    currencyCode = '₴',
+}) {
+    const classes = useStyles();
+
+    let totalPrice = 0;
+
+    basketItems.forEach(item => {
+        console.log(item);
+        totalPrice += item.discount ? item.count * item.discount : item.count * item.price;
+    })
 
   return (
     <React.Fragment>
@@ -42,16 +83,19 @@ export default function Review() {
         Order summary
       </Typography>
       <List disablePadding>
-        {products.map((product) => (
-          <ListItem className={classes.listItem} key={product.name}>
-            <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
+        {basketItems.map((item) => (
+          <ListItem className={classes.listItem} key={item.name}>
+            <ListItemText primary={item.name} secondary={item.count ? `Count: ${item.count}` : ''} />
+            <Typography variant="body2">
+                {!item.price ? 'Free' : 
+                item.discount ? item.discount*item.count + currencyCode : item.price*item.count + currencyCode}
+            </Typography>
           </ListItem>
         ))}
         <ListItem className={classes.listItem}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" className={classes.total}>
-            $34.06
+            {totalPrice}{currencyCode}
           </Typography>
         </ListItem>
       </List>

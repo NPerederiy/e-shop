@@ -14,7 +14,7 @@ const App = () => {
       case 1:
         return <CatalogPage appName={appName} />;
       case 2:
-        return <CheckoutPage />;
+        return <CheckoutPage appName={appName} />;
       default:
         throw new Error('Unknown page number');
     }
