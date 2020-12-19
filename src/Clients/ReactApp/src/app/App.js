@@ -13,41 +13,29 @@ import ManagementPage from "./pages/management";
 import "./app.scss";
 
 const App = (props) => {
-  const { loggedIn } = props;
+  const { isAdmin, loggedIn } = props;
   const appName = "e-shop";
   return (
     <>
       <Router>
         <Switch>
           <Route path="/auth">
-            {!loggedIn ? (
-              <Redirect to="/" />
-            ) : (
-              <AuthPage appName={appName} {...props} />
-            )}
+            <AuthPage appName={appName} {...props} />
           </Route>
 
           <Route path="/checkout">
-            {loggedIn ? (
-              <Redirect to="/auth" />
-            ) : (
-              <CheckoutPage appName={appName} {...props} />
-            )}
+            <CheckoutPage appName={appName} {...props} />
           </Route>
           <Route path="/management">
-            {loggedIn ? (
-              <Redirect to="/auth" />
+            {!isAdmin ? (
+              <Redirect to="/" />
             ) : (
               <ManagementPage appName={appName} {...props} />
             )}
           </Route>
 
           <Route exact path="/">
-            {loggedIn ? (
-              <Redirect to="/auth" />
-            ) : (
-              <CatalogPage appName={appName} {...props} />
-            )}
+            <CatalogPage appName={appName} {...props} />
           </Route>
 
           <Redirect to="/" />
