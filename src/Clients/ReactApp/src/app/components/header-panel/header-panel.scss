@@ -1,0 +1,20 @@
+@import '../../../styles/colors.scss';
+
+.app-header-panel {
+    color: $primary-light !important;
+    background-color: $app-primary-color !important;
+}
+
+.app-header-text {
+    position: absolute;
+    left: 0;
+    padding-left: 24px;
+}
+
+.app-header-button {
+    color: $primary-light !important;
+}
+
+.app-header-tools {
+    justify-content: flex-end;
+}

@@ -1,0 +1,23 @@
+$primary-font-size: 12pt;
+$secondary-font-size: 16pt;
+$tertiary-font-size: 20pt;
+$quarternary-font-size: 24pt;
+
+$primary-border-radius: 5px;
+$secondary-border-radius: 10px;
+
+// loader component
+$loader-spinner-size: 8vmin;
+$loader-message-size: $secondary-font-size;
+
+// common
+$price-font-weight: 500;
+
+// product card & basket item
+$default-photo-icon-size: 8vmin;
+$current-price-font-size: $quarternary-font-size;
+$old-price-font-size: $primary-font-size;
+
+// basket popper
+$total-price-font-size: $quarternary-font-size;
+$popper-footer-font-size: $secondary-font-size;

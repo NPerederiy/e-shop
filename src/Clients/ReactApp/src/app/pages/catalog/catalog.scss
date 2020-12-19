@@ -1,0 +1,40 @@
+@import '../../../styles/colors.scss';
+
+#catalog-page{
+    min-height: 100vh;
+    background-color: $background-primary-light;
+    color: $primary-dark;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+#catalog-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    gap: 1.5em;
+}
+
+.stick-to-top{
+    position: sticky !important;
+    top: 0;
+}
+
+@media (max-width: 1220px){
+    #catalog-container{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 952px){
+    #catalog-container{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 645px){
+    #catalog-container{
+        grid-template-columns: 1fr;
+    }
+}

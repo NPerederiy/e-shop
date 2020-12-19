@@ -1,0 +1,33 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/sizes.scss';
+
+.search-box{
+    position: relative !important;
+    background-color: $primary-light-15 !important;
+    display: flex;
+    align-items: center;
+    border-radius: $primary-border-radius;
+    padding: 4px;
+    margin: 0 6px;
+
+    &:hover{
+        background-color: $primary-light-25 !important;
+    }
+
+    & .search-icon{
+        display: flex;
+        padding: 0 2px;
+        height: 100%;
+    }
+}
+
+.search-box-input{
+    padding: 1px 1px 1px 0;
+    width: 12ch;
+    transition: width 1s ease;
+    color: $primary-light !important;
+
+    &:hover, &:focus{
+        width: 20ch;
+    }
+}

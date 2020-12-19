@@ -1,0 +1,19 @@
+@import '../styles/colors.scss';
+@import '../styles/sizes.scss';
+
+.stick-to-top,
+.stick-to-bottom {
+    position: sticky;
+}
+
+.stick-to-top {
+    top: 0;
+}
+
+.stick-to-bottom {
+    bottom: 0;
+}
+
+.interactive {
+    cursor: pointer;
+}

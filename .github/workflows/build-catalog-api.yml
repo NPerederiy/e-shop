@@ -1,11 +1,6 @@
 name: Catalog-API
 
 on:
-  push:
-    paths:
-    - 'src/BuildingBlocks/**'
-    - 'src/Services/Catalog/**'
-
   pull_request:
     paths:
     - 'src/BuildingBlocks/**'

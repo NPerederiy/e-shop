@@ -1,0 +1,21 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/sizes.scss';
+
+.checkout-button {
+    color: $primary-light !important;
+    background-color: $app-secondary-color !important;
+}
+
+.checkout-button-row {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.checkout-stepper {
+    padding: 3px 0 5px;
+
+    .MuiStepIcon-active,
+    .MuiStepIcon-completed {
+        color: $app-secondary-color !important;
+    }
+}
