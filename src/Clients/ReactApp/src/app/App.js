@@ -14,6 +14,7 @@ import "./app.scss";
 
 const App = (props) => {
   const { isAdmin } = props;
+
   const appName = "e-shop";
   return (
     <>
@@ -27,10 +28,10 @@ const App = (props) => {
             <CheckoutPage appName={appName} {...props} />
           </Route>
           <Route path="/management">
-            {!isAdmin ? (
-              <Redirect to="/" />
-            ) : (
+            {isAdmin ? (
               <ManagementPage appName={appName} {...props} />
+            ) : (
+              <Redirect to="/" />
             )}
           </Route>
 

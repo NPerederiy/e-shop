@@ -1,11 +1,18 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
 import App from "./App";
 
-const loggedIn = true;
-const isAdmin = true;
-
 const AppContainer = (props) => {
-  return <App loggedIn={!loggedIn} isAdmin={isAdmin} {...props} />;
+  const authorisation = useSelector((state) => state.authorisation);
+
+  return (
+    <App
+      loggedIn={authorisation.isAuthenticated}
+      isAdmin={authorisation.isAuthenticated}
+      {...props}
+    />
+  );
 };
 
 export default AppContainer;

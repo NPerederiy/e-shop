@@ -80,7 +80,8 @@ const items = [
   },
 ];
 
-const CatalogPage = ({ appName }) => {
+const CatalogPage = (props) => {
+  const { appName, handlelogOut } = props;
   const [category, setCategory] = useState();
   const [brand, setBrand] = useState();
   const [displayedItems, setDisplayedItems] = useState(items);
@@ -99,6 +100,12 @@ const CatalogPage = ({ appName }) => {
     console.log(brand);
 
     // TODO: Filter by brand
+  };
+
+  const handleuserMenuSelection = (event) => {
+    if (event.target.innerText === "LogOut") {
+      handlelogOut();
+    }
   };
 
   const handleSearchAction = (event) => {
@@ -145,6 +152,20 @@ const CatalogPage = ({ appName }) => {
       name: "Razer",
     },
   ];
+  const userMenu = [
+    {
+      id: 1,
+      name: "Тест",
+    },
+    {
+      id: 2,
+      name: "Management",
+    },
+    {
+      id: 3,
+      name: "LogOut",
+    },
+  ];
 
   return (
     <>
@@ -152,6 +173,8 @@ const CatalogPage = ({ appName }) => {
         text={appName}
         categories={categories}
         brands={brands}
+        userMenu={userMenu}
+        userMenuSelection={handleuserMenuSelection}
         categorySelection={handleCategorySelection}
         brandSelection={handleBrandSelection}
         searchAction={handleSearchAction}

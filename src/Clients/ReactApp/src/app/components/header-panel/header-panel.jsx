@@ -23,7 +23,10 @@ const handleProfileOpen = () => {
 const HeaderPanel = ({
   text,
   user,
+  isAuthenticated,
   categories,
+  userMenu,
+  userMenuSelection,
   brands,
   categorySelection,
   brandSelection,
@@ -93,7 +96,15 @@ const HeaderPanel = ({
             </Grow>
           )}
         </Popper>
-        {true && (
+        {isAuthenticated ? (
+          <>
+            <Select
+              isShowIcon
+              options={userMenu}
+              optionSelection={userMenuSelection}
+            ></Select>
+          </>
+        ) : (
           <Link to="/auth">
             <IconButton
               className="app-header-button"
@@ -102,11 +113,6 @@ const HeaderPanel = ({
               <AccountCircleIcon />
             </IconButton>
           </Link>
-        )}
-        {true && (
-          <IconButton className="app-header-button" onClick={handleProfileOpen}>
-            <AccountCircleIcon />
-          </IconButton>
         )}
       </Toolbar>
     </AppBar>
