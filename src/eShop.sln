@@ -47,6 +47,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Core.Application", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Infrastructure.Persistence", "Services\Catalog\Catalog.Infrastructure.Persistence\Catalog.Infrastructure.Persistence.csproj", "{731739D3-3756-45A5-95B1-044DECD62D2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket.Persistence", "Services\Basket\Basket.Persistence\Basket.Persistence.csproj", "{3A8F0E96-C8C3-4FD8-A39E-86EC6193A59E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{731739D3-3756-45A5-95B1-044DECD62D2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{731739D3-3756-45A5-95B1-044DECD62D2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{731739D3-3756-45A5-95B1-044DECD62D2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A8F0E96-C8C3-4FD8-A39E-86EC6193A59E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A8F0E96-C8C3-4FD8-A39E-86EC6193A59E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A8F0E96-C8C3-4FD8-A39E-86EC6193A59E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A8F0E96-C8C3-4FD8-A39E-86EC6193A59E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,6 +122,7 @@ Global
 		{BF031458-A334-4E6B-B435-006647685BC3} = {A5570C95-93D1-441F-B9D4-858227C29CC6}
 		{914F59D8-9747-4B02-8061-FD86AB47D46F} = {A5570C95-93D1-441F-B9D4-858227C29CC6}
 		{731739D3-3756-45A5-95B1-044DECD62D2D} = {A5570C95-93D1-441F-B9D4-858227C29CC6}
+		{3A8F0E96-C8C3-4FD8-A39E-86EC6193A59E} = {60F3ACDD-B7FD-4637-833C-C6530F38471C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {62A3ADED-4E4B-43E8-AB67-B1AAA1C8B3DD}

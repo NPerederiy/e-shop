@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Basket.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,7 +29,7 @@ namespace Basket.API.Controllers
         /// Creates a new basket list.
         /// </summary>
         [HttpPost]
-        public IActionResult Create(CustomerBasket basket)
+        public IActionResult Create(BasketItem item)
         {
             return Ok("create basket ");
         }
@@ -37,10 +38,8 @@ namespace Basket.API.Controllers
         /// Updates basket list based on the buyer id.
         /// </summary>
         [HttpPut("{id}")]
-        public IActionResult Update(Guid id, CustomerBasket basket)
+        public IActionResult Update(Guid id, IEnumerable<BasketItem> basket)
         {
-            if (id != basket.BuyerId) return BadRequest();
-
             return Ok("update basket " + id);
         }
 

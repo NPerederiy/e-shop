@@ -16,6 +16,5 @@ namespace Basket.Domain.Entities
         public DateTime CardExpiration { get; set; }
         public string CardSecurityNumber { get; set; }
         public int CardTypeId { get; set; }
-        public Guid RequestId { get; set; }
     }
 }

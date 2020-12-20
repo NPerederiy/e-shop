@@ -20,12 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Basket.Domain\Basket.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Abstractions\" />
-    <Folder Include="Models\" />
-    <Folder Include="Migrations\" />
+    <ProjectReference Include="..\Basket.Persistence\Basket.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

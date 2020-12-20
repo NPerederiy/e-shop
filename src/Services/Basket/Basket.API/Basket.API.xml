@@ -19,12 +19,12 @@
             Gets basket list by buyer id.
             </summary>
         </member>
-        <member name="M:Basket.API.Controllers.BasketController.Create(Basket.Domain.Entities.CustomerBasket)">
+        <member name="M:Basket.API.Controllers.BasketController.Create(Basket.Domain.Entities.BasketItem)">
             <summary>
             Creates a new basket list.
             </summary>
         </member>
-        <member name="M:Basket.API.Controllers.BasketController.Update(System.Guid,Basket.Domain.Entities.CustomerBasket)">
+        <member name="M:Basket.API.Controllers.BasketController.Update(System.Guid,System.Collections.Generic.IEnumerable{Basket.Domain.Entities.BasketItem})">
             <summary>
             Updates basket list based on the buyer id.
             </summary>
