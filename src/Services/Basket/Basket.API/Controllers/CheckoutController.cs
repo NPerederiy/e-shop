@@ -19,7 +19,7 @@ namespace Basket.API.Controllers
         /// Creates a basket checkout.
         /// </summary>
         [HttpPost]
-        public IActionResult Create(CustomerBasket basket)
+        public IActionResult Create(BasketCheckout checkout)
         {
             return Ok("create checkout ");
         }
@@ -28,9 +28,9 @@ namespace Basket.API.Controllers
         /// Updates basket checkout based on the buyer id.
         /// </summary>
         [HttpPut("{id}")]
-        public IActionResult Update(Guid id, CustomerBasket basket)
+        public IActionResult Update(Guid id, BasketCheckout checkout)
         {
-            if (id != basket.BuyerId) return BadRequest();
+            if (id != checkout.BuyerId) return BadRequest();
 
             return Ok("update checkout " + id);
         }

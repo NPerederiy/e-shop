@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Basket.API</name>
+    </assembly>
+    <members>
+        <member name="T:Basket.API.Controllers.ApiControllerBase">
+            <summary>
+            A base class for an MVC controller without view support.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Controllers.BasketController.GetAll">
+            <summary>
+            Gets all basket lists.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Controllers.BasketController.GetById(System.Guid)">
+            <summary>
+            Gets basket list by buyer id.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Controllers.BasketController.Create(Basket.Domain.Entities.CustomerBasket)">
+            <summary>
+            Creates a new basket list.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Controllers.BasketController.Update(System.Guid,Basket.Domain.Entities.CustomerBasket)">
+            <summary>
+            Updates basket list based on the buyer id.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Controllers.BasketController.Delete(System.Guid)">
+            <summary>
+            Deletes basket list based on the buyer id.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Controllers.CheckoutController.GetById(System.Guid)">
+            <summary>
+            Gets basket checkout by buyer id.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Controllers.CheckoutController.Create(Basket.Domain.Entities.BasketCheckout)">
+            <summary>
+            Creates a basket checkout.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Controllers.CheckoutController.Update(System.Guid,Basket.Domain.Entities.BasketCheckout)">
+            <summary>
+            Updates basket checkout based on the buyer id.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Controllers.CheckoutController.Delete(System.Guid)">
+            <summary>
+            Deletes basket checkout based on the buyer id.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Controllers.ItemController.GetAll">
+            <summary>
+            Gets all basket items.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Controllers.ItemController.GetById(System.Guid)">
+            <summary>
+            Gets basket item by id.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Controllers.ItemController.Create(Basket.Domain.Entities.BasketItem)">
+            <summary>
+            Creates a new basket item.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Controllers.ItemController.Update(System.Guid,Basket.Domain.Entities.BasketItem)">
+            <summary>
+            Updates basket item based on id.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Controllers.ItemController.Delete(System.Guid)">
+            <summary>
+            Deletes basket item based on id.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+        </member>
+        <member name="M:Basket.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+        </member>
+    </members>
+</doc>
