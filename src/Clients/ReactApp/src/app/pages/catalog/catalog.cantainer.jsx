@@ -28,6 +28,7 @@ const CatalogContainer = (props) => {
   return (
     <Catalog
       isAuthenticated={authorisation.isAuthenticated}
+      setDisplayedItems={setDisplayedItems}
       isFatching={applicationData.isFatching}
       handlelogOut={handlelogOut}
       catalog={applicationData.catalog}

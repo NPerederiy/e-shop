@@ -7,7 +7,14 @@ import ProductCard from "../../components/product-card";
 import "./catalog.scss";
 
 const CatalogPage = (props) => {
-  const { appName, handlelogOut, isFatching, catalog, displayedItems } = props;
+  const {
+    appName,
+    handlelogOut,
+    isFatching,
+    catalog,
+    displayedItems,
+    setDisplayedItems,
+  } = props;
   const [category, setCategory] = useState();
   const [brand, setBrand] = useState();
 
