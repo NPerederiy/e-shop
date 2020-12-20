@@ -13,7 +13,7 @@ import ManagementPage from "./pages/management";
 import "./app.scss";
 
 const App = (props) => {
-  const { isAdmin, loggedIn } = props;
+  const { isAdmin } = props;
   const appName = "e-shop";
   return (
     <>

@@ -9,7 +9,7 @@ import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
 import Popper from "@material-ui/core/Popper";
-import { BrowserRouter as Router, Link, withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import Basket from "../basket";
 import Select from "../select";
