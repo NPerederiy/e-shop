@@ -1,33 +1,48 @@
-import CatalogPage from './pages/catalog';
-import AuthPage from './pages/authentication';
-import CheckoutPage from './pages/checkout';
-import ManagementPage from './pages/management';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import CatalogPage from "./pages/catalog";
+import AuthPage from "./pages/authentication";
+import CheckoutPage from "./pages/checkout";
+import ManagementPage from "./pages/management";
 
-import './app.scss'
+import "./app.scss";
 
-const App = () => {
-  const appName = 'e-shop';
-
-  const getPage = (num) => {
-    switch (num) {
-      case 0:
-        return <AuthPage />;
-      case 1:
-        return <CatalogPage appName={appName} />;
-      case 2:
-        return <CheckoutPage appName={appName} />;
-      case 3:
-        return <ManagementPage appName={appName} />;
-      default:
-        throw new Error('Unknown page number');
-    }
-  }
-
+const App = (props) => {
+  const { isAdmin } = props;
+  const appName = "e-shop";
   return (
     <>
-      {getPage(2)}
+      <Router>
+        <Switch>
+          <Route path="/auth">
+            <AuthPage appName={appName} {...props} />
+          </Route>
+
+          <Route path="/checkout">
+            <CheckoutPage appName={appName} {...props} />
+          </Route>
+          <Route path="/management">
+            {!isAdmin ? (
+              <Redirect to="/" />
+            ) : (
+              <ManagementPage appName={appName} {...props} />
+            )}
+          </Route>
+
+          <Route exact path="/">
+            <CatalogPage appName={appName} {...props} />
+          </Route>
+
+          <Redirect to="/" />
+        </Switch>
+      </Router>
     </>
   );
-}
+};
 
 export default App;
