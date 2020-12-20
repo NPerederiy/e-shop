@@ -1,3 +1,1 @@
-import HeaderPanel from './header-panel';
-
-export default HeaderPanel;
+export { default } from "./header-panel.container";
