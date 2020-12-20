@@ -9,31 +9,6 @@
             A base class for an MVC controller without view support.
             </summary>
         </member>
-        <member name="M:Basket.API.Controllers.BasketController.GetAll">
-            <summary>
-            Gets all basket lists.
-            </summary>
-        </member>
-        <member name="M:Basket.API.Controllers.BasketController.GetById(System.Guid)">
-            <summary>
-            Gets basket list by buyer id.
-            </summary>
-        </member>
-        <member name="M:Basket.API.Controllers.BasketController.Create(Basket.Domain.Entities.BasketItem)">
-            <summary>
-            Creates a new basket list.
-            </summary>
-        </member>
-        <member name="M:Basket.API.Controllers.BasketController.Update(System.Guid,System.Collections.Generic.IEnumerable{Basket.Domain.Entities.BasketItem})">
-            <summary>
-            Updates basket list based on the buyer id.
-            </summary>
-        </member>
-        <member name="M:Basket.API.Controllers.BasketController.Delete(System.Guid)">
-            <summary>
-            Deletes basket list based on the buyer id.
-            </summary>
-        </member>
         <member name="M:Basket.API.Controllers.CheckoutController.GetById(System.Guid)">
             <summary>
             Gets basket checkout by buyer id.
@@ -54,9 +29,9 @@
             Deletes basket checkout based on the buyer id.
             </summary>
         </member>
-        <member name="M:Basket.API.Controllers.ItemController.GetAll">
+        <member name="M:Basket.API.Controllers.ItemController.GetAll(System.Guid)">
             <summary>
-            Gets all basket items.
+            Gets all basket items by buyer's id.
             </summary>
         </member>
         <member name="M:Basket.API.Controllers.ItemController.GetById(System.Guid)">
