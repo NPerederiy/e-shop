@@ -54,6 +54,8 @@ export default function CheckoutPage({
   appName,
   history,
   updateCheckoutListAction,
+  basket,
+  checkout,
 }) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -164,7 +166,14 @@ export default function CheckoutPage({
                 ) : (
                   ""
                 )}
-                {activeStep === 2 ? <Review /> : ""}
+                {activeStep === 2 ? (
+                  <Review
+                    basketItems={basket.productСatalog}
+                    checkout={checkout}
+                  />
+                ) : (
+                  ""
+                )}
                 <Box className="checkout-button-row">
                   {activeStep !== 0 && (
                     <Button onClick={handleBack}>Back</Button>

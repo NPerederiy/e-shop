@@ -11,7 +11,6 @@ const initialState = {
 const Basket = (state = initialState, action) => {
   switch (action.type) {
     case ADD_PRODUCT_TO_BASKET:
-      console.log(action.payload);
       return {
         ...state,
         productСatalog: [...state.productСatalog, action.payload],
