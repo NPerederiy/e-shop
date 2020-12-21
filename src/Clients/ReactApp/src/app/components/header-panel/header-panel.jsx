@@ -9,7 +9,7 @@ import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
 import Popper from "@material-ui/core/Popper";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Basket from "../basket";
 import Select from "../select";
@@ -22,7 +22,7 @@ const handleProfileOpen = () => {
 
 const HeaderPanel = ({
   text,
-  user,
+  basket,
   isAuthenticated,
   categories,
   userMenu,
@@ -31,12 +31,13 @@ const HeaderPanel = ({
   categorySelection,
   brandSelection,
   searchAction,
+  handleClearAction,
+  handleMakeOrderAction,
 }) => {
   const [basketOpen, setBasketOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
   const handleBasketOpen = () => {
-    console.log("basket");
     setBasketOpen((prevOpen) => !prevOpen);
   };
 
@@ -90,7 +91,11 @@ const HeaderPanel = ({
             >
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
-                  <Basket />
+                  <Basket
+                    basket={basket}
+                    handleClearAction={handleClearAction}
+                    handleMakeOrderAction={handleMakeOrderAction}
+                  />
                 </ClickAwayListener>
               </Paper>
             </Grow>
@@ -119,4 +124,4 @@ const HeaderPanel = ({
   );
 };
 
-export default withRouter(HeaderPanel);
+export default HeaderPanel;

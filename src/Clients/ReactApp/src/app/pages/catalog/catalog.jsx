@@ -14,6 +14,7 @@ const CatalogPage = (props) => {
     catalog,
     displayedItems,
     setDisplayedItems,
+    handleAddToCartAction,
   } = props;
   const [category, setCategory] = useState();
   const [brand, setBrand] = useState();
@@ -35,7 +36,7 @@ const CatalogPage = (props) => {
   };
 
   const handleuserMenuSelection = (event) => {
-    if (event.target.innerText === "LogOut") {
+    if (event.target.innerText === "Sign Out") {
       handlelogOut();
     }
   };
@@ -49,10 +50,6 @@ const CatalogPage = (props) => {
         catalog.filter((x) => x.name.toLowerCase().includes(searchPattern))
       );
     }
-  };
-
-  const handleAddToCartAction = () => {
-    console.log("add to cart");
   };
 
   const categories = [
@@ -95,7 +92,7 @@ const CatalogPage = (props) => {
     },
     {
       id: 3,
-      name: "LogOut",
+      name: "Sign Out",
     },
   ];
 
@@ -119,7 +116,9 @@ const CatalogPage = (props) => {
             {displayedItems.map((item) => (
               <ProductCard
                 key={item.id}
-                addToCartAction={handleAddToCartAction}
+                addToCartAction={() => {
+                  handleAddToCartAction(item);
+                }}
                 {...item}
               />
             ))}

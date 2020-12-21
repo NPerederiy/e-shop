@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "../../../redux/actions/auth.action";
 import { fetchDashboardData } from "../../../redux/actions/applicationData.action";
 import Catalog from "./catalog";
+import { addProductToBasket } from "../../../redux/actions/basket.action";
 
 const CatalogContainer = (props) => {
   const dispatch = useDispatch();
@@ -25,6 +26,10 @@ const CatalogContainer = (props) => {
     dispatch(logOut());
   };
 
+  const handleAddToCartAction = (item) => {
+    dispatch(addProductToBasket(item));
+  };
+
   return (
     <Catalog
       isAuthenticated={authorisation.isAuthenticated}
@@ -33,6 +38,7 @@ const CatalogContainer = (props) => {
       handlelogOut={handlelogOut}
       catalog={applicationData.catalog}
       displayedItems={displayedItems}
+      handleAddToCartAction={handleAddToCartAction}
       {...props}
     />
   );

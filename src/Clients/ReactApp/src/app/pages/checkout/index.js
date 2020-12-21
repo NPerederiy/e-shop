@@ -1,3 +1,3 @@
-import CheckoutPage from './checkout';
+import CheckoutPage from "./checkout.container";
 
 export default CheckoutPage;
