@@ -135,9 +135,9 @@ export default function CheckoutPage({
                   Thank you for your order.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order
-                  confirmation, and will send you an update when your order has
-                  shipped.
+                  Your order number is : {checkout.orderNumber}. We have emailed
+                  your order confirmation, and will send you an update when your
+                  order has shipped.
                 </Typography>
               </React.Fragment>
             ) : (

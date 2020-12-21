@@ -37,7 +37,7 @@ export default function Review({
   let totalPrice = 0;
 
   basketItems.forEach((item) => {
-    totalPrice += +item.price;
+    totalPrice += +item.price * item.count;
   });
 
   return (

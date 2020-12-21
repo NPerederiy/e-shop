@@ -117,7 +117,7 @@ const CatalogPage = (props) => {
               <ProductCard
                 key={item.id}
                 addToCartAction={() => {
-                  handleAddToCartAction(item);
+                  handleAddToCartAction({ ...item, count: 1 });
                 }}
                 {...item}
               />

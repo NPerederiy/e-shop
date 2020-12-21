@@ -11,9 +11,7 @@ const Basket = ({ basket = [], handleClearAction, handleMakeOrderAction }) => {
     let price = 0;
 
     basket.forEach((item) => {
-      price += item.discount
-        ? item.count * item.discount
-        : item.count * item.price;
+      price += +item.price * item.count;
     });
 
     settotalPrice(price);

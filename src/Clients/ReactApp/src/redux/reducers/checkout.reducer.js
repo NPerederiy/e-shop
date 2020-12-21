@@ -13,6 +13,7 @@ const initialState = {
   cardNumber: "",
   expDate: "",
   cvv: "",
+  orderNumber: "#22441444234",
 };
 
 const Basket = (state = initialState, action) => {
