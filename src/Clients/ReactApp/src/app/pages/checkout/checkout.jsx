@@ -50,25 +50,46 @@ const useStyles = makeStyles((theme) => ({
 
 const steps = ["Shipping address", "Payment details", "Review your order"];
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <AddressForm />;
-    case 1:
-      return <PaymentForm />;
-    case 2:
-      return <Review />;
-    default:
-      throw new Error("Unknown step");
-  }
-}
-
-export default function CheckoutPage({ appName, history }) {
+export default function CheckoutPage({
+  appName,
+  history,
+  updateCheckoutListAction,
+}) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
+  //address
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  const [address1, setAddress1] = React.useState("");
+  const [address2, setAddress2] = React.useState("");
+  const [city, setCity] = React.useState("");
+  const [state, setState] = React.useState("");
+  const [zip, setzip] = React.useState("");
+  const [country, setCountry] = React.useState("");
+
+  // card
+  const [cardName, setCardName] = React.useState("");
+  const [cardNumber, setCardNumber] = React.useState("");
+  const [expDate, setExpDate] = React.useState("");
+  const [cvv, setCvv] = React.useState("");
+
   const handleNext = () => {
     setActiveStep(activeStep + 1);
+    updateCheckoutListAction({
+      firstName,
+      lastName,
+      address1,
+      address2,
+      city,
+      zip,
+      state,
+      country,
+      cardName,
+      cardNumber,
+      expDate,
+      cvv,
+    });
   };
 
   const handleBack = () => {
@@ -119,7 +140,31 @@ export default function CheckoutPage({ appName, history }) {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {getStepContent(activeStep)}
+                {activeStep === 0 ? (
+                  <AddressForm
+                    setFirstName={setFirstName}
+                    setLastName={setLastName}
+                    setAddress1={setAddress1}
+                    setAddress2={setAddress2}
+                    setCity={setCity}
+                    setzip={setzip}
+                    setState={setState}
+                    setCountry={setCountry}
+                  />
+                ) : (
+                  ""
+                )}
+                {activeStep === 1 ? (
+                  <PaymentForm
+                    setCardName={setCardName}
+                    setCardNumber={setCardNumber}
+                    setExpDate={setExpDate}
+                    setCvv={setCvv}
+                  />
+                ) : (
+                  ""
+                )}
+                {activeStep === 2 ? <Review /> : ""}
                 <Box className="checkout-button-row">
                   {activeStep !== 0 && (
                     <Button onClick={handleBack}>Back</Button>
