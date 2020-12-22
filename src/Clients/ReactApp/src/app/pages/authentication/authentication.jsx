@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
@@ -12,7 +12,7 @@ import { withRouter } from "react-router-dom";
 import Copyright from "../../components/copyright";
 import SignUpForm from "../../components/sign-up-form";
 import SignInForm from "../../components/sign-in-form";
-import { SignIn, fetchSignIn } from "../../../redux/actions/auth.action";
+import { fetchSignIn, fetchSignUp } from "../../../redux/actions/auth.action";
 
 import "./authentication.scss";
 
@@ -44,19 +44,17 @@ const useStyles = makeStyles((theme) => ({
 
 const AuthPage = (props) => {
   const { history } = props;
+  const [firstTime, setFistTime] = useState(false);
 
   const dispatch = useDispatch();
   const classes = useStyles();
-  let firstTime = false;
 
   const signInRedirectAction = () => {
-    console.log("redirect to sign in");
-    firstTime = false; // TODO: update the state
+    setFistTime(false);
   };
 
   const signUpRedirectAction = () => {
-    console.log("redirect to sign up");
-    firstTime = true; // TODO: update the state
+    setFistTime(true);
   };
 
   const signInAction = (email, password) => {
@@ -64,9 +62,8 @@ const AuthPage = (props) => {
     history.push("/");
   };
 
-  const signUpAction = () => {
-    console.log("sign up");
-    // TODO: Implement the action.
+  const signUpAction = (firstName, lastName, email, password) => {
+    dispatch(fetchSignUp({ firstName, lastName, email, password }));
   };
 
   const forgetPasswordAction = () => {
