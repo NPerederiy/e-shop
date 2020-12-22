@@ -12,7 +12,6 @@ const HeaderPanelContainer = (props) => {
   const basket = useSelector((state) => state.basket);
 
   const handleClearAction = () => {
-    console.log("clear");
     dispatch(clearBasket());
   };
 
