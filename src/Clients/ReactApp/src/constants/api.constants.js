@@ -1,5 +1,9 @@
-export const CatalogApi = "http://localhost:5020";
-export const IdentityApi = "http://localhost:5040";
+// export const CatalogApi = "http://localhost:5020";
+export const CatalogApi = "http://cdcd87a30806.ngrok.io";
+
+// export const IdentityApi = "http://localhost:5040";
+export const IdentityApi = "http://729eeb30e600.ngrok.io";
+
 export const OrderingApi = "http://localhost:5030";
 
 export const AltCatalogApi = "https://localhost:5021";
