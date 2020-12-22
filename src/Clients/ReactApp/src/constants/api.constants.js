@@ -1,4 +1,10 @@
-export const host = "http://8530f8da5a51.ngrok.io";
+export const CatalogApi = "http://localhost:5020";
+export const IdentityApi = "http://localhost:5040";
+export const OrderingApi = "http://localhost:5030";
+
+export const AltCatalogApi = "https://localhost:5021";
+export const AltIdentityApi = "https://localhost:5041";
+export const AltOrderingApi = "https://localhost:5031";
 
 const apiSupportedVersions = 1;
 

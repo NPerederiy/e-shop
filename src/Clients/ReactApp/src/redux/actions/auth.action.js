@@ -1,5 +1,5 @@
 import { UPDATE_SIGN_UP, UPDATE_SIGN_IN, LOG_OUT } from "../types/auth.types";
-import { host, endpoinst } from "../../constants/api.constants";
+import { IdentityApi, endpoinst } from "../../constants/api.constants";
 
 const axios = require("axios");
 
@@ -31,7 +31,7 @@ export const fetchSignIn = (data) => async (dispatch) => {
 
   try {
     //TODO get user id token
-    const data = await axios.post(`${host}${endpoinst.signin}`, {
+    const data = await axios.post(`${IdentityApi}${endpoinst.signin}`, {
       email,
       password,
     });
@@ -47,7 +47,7 @@ export const fetchSignUp = (data) => async (dispatch) => {
   const { firstName, lastName, email, password } = data;
 
   try {
-    const data = await axios.post(`${host}${endpoinst.signup}`, {
+    const data = await axios.post(`${IdentityApi}${endpoinst.signup}`, {
       firstName,
       lastName,
       email,
