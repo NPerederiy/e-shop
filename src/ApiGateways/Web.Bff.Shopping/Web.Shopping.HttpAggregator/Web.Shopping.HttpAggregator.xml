@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Web.Shopping.HttpAggregator</name>
+    </assembly>
+    <members>
+        <member name="T:Web.Shopping.HttpAggregator.Controllers.ApiControllerBase">
+            <summary>
+            A base class for an MVC controller without view support.
+            </summary>
+        </member>
+        <member name="T:Web.Shopping.HttpAggregator.Controllers.CatalogController">
+            <summary>
+            Catalog aggregator.
+            </summary>
+        </member>
+        <member name="M:Web.Shopping.HttpAggregator.Controllers.CatalogController.GetAllProducts">
+            <summary>
+            Gets all catalog items.
+            </summary>
+        </member>
+        <member name="M:Web.Shopping.HttpAggregator.Controllers.CatalogController.GetById(System.Guid)">
+            <summary>
+            Gets catalog item by id.
+            </summary>
+        </member>
+        <member name="M:Web.Shopping.HttpAggregator.Controllers.CatalogController.Create(Web.Shopping.HttpAggregator.Models.ProductData)">
+            <summary>
+            Creates a new catalog item.
+            </summary>
+        </member>
+        <member name="M:Web.Shopping.HttpAggregator.Controllers.CatalogController.Update(System.Guid,Web.Shopping.HttpAggregator.Models.ProductData)">
+            <summary>
+            Updates catalog item based on id.
+            </summary>
+        </member>
+        <member name="M:Web.Shopping.HttpAggregator.Controllers.CatalogController.Delete(System.Guid)">
+            <summary>
+            Deletes catalog item based on id.
+            </summary>
+        </member>
+        <member name="M:Web.Shopping.HttpAggregator.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Web.Shopping.HttpAggregator.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)" -->
+    </members>
+</doc>
