@@ -15,7 +15,16 @@ export default function AddressForm(props) {
     setzip,
     setState,
     setCountry,
+    firstName,
+    lastName,
+    address1,
+    address2,
+    city,
+    state,
+    zip,
+    country,
   } = props;
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -25,6 +34,7 @@ export default function AddressForm(props) {
         <Grid item xs={12} sm={6}>
           <TextField
             required
+            value={firstName}
             id="firstName"
             name="firstName"
             label="First name"
@@ -37,6 +47,7 @@ export default function AddressForm(props) {
           <TextField
             required
             id="lastName"
+            value={lastName}
             name="lastName"
             label="Last name"
             fullWidth
@@ -47,6 +58,7 @@ export default function AddressForm(props) {
         <Grid item xs={12}>
           <TextField
             required
+            value={address1}
             id="address1"
             name="address1"
             label="Address line 1"
@@ -57,6 +69,7 @@ export default function AddressForm(props) {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            value={address2}
             id="address2"
             name="address2"
             label="Address line 2"
@@ -68,6 +81,7 @@ export default function AddressForm(props) {
         <Grid item xs={12} sm={6}>
           <TextField
             required
+            value={city}
             id="city"
             name="city"
             label="City"
@@ -78,6 +92,7 @@ export default function AddressForm(props) {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            value={state}
             id="state"
             name="state"
             label="State/Province/Region"
@@ -87,6 +102,7 @@ export default function AddressForm(props) {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            value={zip}
             required
             id="zip"
             name="zip"
@@ -99,6 +115,7 @@ export default function AddressForm(props) {
         <Grid item xs={12} sm={6}>
           <TextField
             required
+            value={country}
             id="country"
             name="country"
             label="Country"

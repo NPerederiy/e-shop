@@ -10,7 +10,7 @@ const BasketItem = ({
   name,
   price,
   count,
-  img,
+  pictureUri,
   discount,
   id,
   currencyCode = "UAH",
@@ -18,9 +18,9 @@ const BasketItem = ({
   return (
     <Box id="basket-item-container" className={className}>
       <img
-        src={img ?? defaultImage}
+        src={pictureUri ?? defaultImage}
         className={
-          img
+          pictureUri
             ? "basket-item-image interactive"
             : "basket-item-image placeholder interactive"
         }

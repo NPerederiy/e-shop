@@ -18,11 +18,15 @@ const CatalogPage = (props) => {
     handleAddToCartAction,
     handleBrandSelection,
     handleCategorySelection,
+    history,
   } = props;
 
   const handleuserMenuSelection = (event) => {
     if (event.target.innerText === "Sign Out") {
       handlelogOut();
+    }
+    if (event.target.innerText === "Management") {
+      history.push("/management");
     }
   };
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import { logOut } from "../../../redux/actions/auth.action";
 import {
@@ -75,4 +76,4 @@ const CatalogContainer = (props) => {
   );
 };
 
-export default CatalogContainer;
+export default withRouter(CatalogContainer);

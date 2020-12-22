@@ -6,7 +6,16 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 
 export default function PaymentForm(props) {
-  const { setCardName, setCardNumber, setExpDate, setCvv } = props;
+  const {
+    setCardName,
+    setCardNumber,
+    setExpDate,
+    setCvv,
+    cardName,
+    cardNumber,
+    expDate,
+    cvv,
+  } = props;
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -15,6 +24,7 @@ export default function PaymentForm(props) {
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <TextField
+            value={cardName}
             required
             id="cardName"
             label="Name on card"
@@ -25,6 +35,7 @@ export default function PaymentForm(props) {
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
+            value={cardNumber}
             required
             id="cardNumber"
             label="Card number"
@@ -35,6 +46,7 @@ export default function PaymentForm(props) {
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
+            value={expDate}
             required
             id="expDate"
             label="Expiry date"
@@ -45,6 +57,7 @@ export default function PaymentForm(props) {
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
+            value={cvv}
             required
             id="cvv"
             label="CVV"
