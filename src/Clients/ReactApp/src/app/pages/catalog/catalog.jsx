@@ -32,11 +32,12 @@ const CatalogPage = (props) => {
 
   const handleSearchAction = (event) => {
     let searchPattern = event.target.value.toLowerCase();
-    console.log(searchPattern);
 
-    if (catalog) {
+    if (displayedItems) {
       setDisplayedItems(
-        catalog.filter((x) => x.name.toLowerCase().includes(searchPattern))
+        displayedItems.filter((x) =>
+          x.name.toLowerCase().includes(searchPattern)
+        )
       );
     }
   };
