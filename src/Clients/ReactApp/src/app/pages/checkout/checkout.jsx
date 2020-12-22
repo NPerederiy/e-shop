@@ -57,6 +57,7 @@ export default function CheckoutPage({
   clearBasketAction,
   basket,
   checkout,
+  sendOrderAction,
 }) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -79,7 +80,10 @@ export default function CheckoutPage({
 
   const handleNext = () => {
     if (activeStep === 2) {
-      clearBasketAction();
+      sendOrderAction();
+      setTimeout(() => {
+        clearBasketAction();
+      }, 1000);
     }
 
     setActiveStep(activeStep + 1);

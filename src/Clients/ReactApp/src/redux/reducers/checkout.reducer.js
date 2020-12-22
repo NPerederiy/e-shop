@@ -13,6 +13,7 @@ const initialState = {
   cardNumber: "",
   expDate: "",
   cvv: "",
+  totalPrice: "",
   orderNumber: "#22441444234",
 };
 
