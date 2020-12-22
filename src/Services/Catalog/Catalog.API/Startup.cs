@@ -73,7 +73,7 @@ namespace Catalog.API
                 c.AllowAnyOrigin();
             });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMvc();
 
             app.UseSwagger();

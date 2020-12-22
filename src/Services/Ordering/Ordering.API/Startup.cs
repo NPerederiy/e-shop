@@ -32,7 +32,8 @@ namespace Ordering.API
             services.AddApplication();
             services.AddPersistence(_config);
 
-            services.AddControllers();
+            services.AddControllers(); 
+            services.AddCors();
 
             services.AddSwaggerGen(c =>
             {
@@ -61,6 +62,13 @@ namespace Ordering.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(c =>
+            {
+                c.AllowAnyHeader();
+                c.AllowAnyMethod();
+                c.AllowAnyOrigin();
+            });
 
             //app.UseHttpsRedirection();
             app.UseRouting();

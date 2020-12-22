@@ -5,10 +5,10 @@ namespace Web.Shopping.HttpAggregator.Configurations
     public static class UrisConfig
     {
         // APIs. 
-        public static readonly string CatalogApi = "https://localhost:5001/api/v1";
-        public static readonly string BasketApi = "https://localhost:5001/api/v1";
+        public static readonly string CatalogApi = "https://localhost:5021/api/v1";
+        public static readonly string BasketApi = "https://localhost:5051/api/v1";
         public static readonly string IdentityApi = "https://localhost:5041/api/v1";
-        public static readonly string OrderingApi = "https://localhost:5001/api/v1";
+        public static readonly string OrderingApi = "https://localhost:5031/api/v1";
 
         // Identity operations.
         // TODO: Paste identity related urls here.
