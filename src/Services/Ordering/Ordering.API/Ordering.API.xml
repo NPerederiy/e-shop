@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ordering.API</name>
+    </assembly>
+    <members>
+        <member name="M:Ordering.API.Controllers.OrderController.GetAll">
+            <summary>
+            Gets all orders.
+            </summary>
+        </member>
+        <member name="M:Ordering.API.Controllers.OrderController.GetById(System.Guid)">
+            <summary>
+            Gets order by id.
+            </summary>
+        </member>
+        <member name="M:Ordering.API.Controllers.OrderController.Create(Ordering.Core.Application.Features.OrderFeatures.Commands.MakeOrderCommand)">
+            <summary>
+            Creates a new order.
+            </summary>
+        </member>
+        <member name="M:Ordering.API.Controllers.OrderController.Update(System.Guid,Ordering.Core.Application.Features.OrderFeatures.Commands.UpdateOrderCommand)">
+            <summary>
+            Updates an order based on id.
+            </summary>
+        </member>
+        <member name="M:Ordering.API.Controllers.OrderController.Delete(System.Guid)">
+            <summary>
+            Deletes an order based on id.
+            </summary>
+        </member>
+        <member name="M:Ordering.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+        </member>
+        <member name="M:Ordering.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+        </member>
+    </members>
+</doc>
