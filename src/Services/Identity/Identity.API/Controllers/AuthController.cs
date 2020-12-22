@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Identity.API.Controllers
 {
-    public class AuthController : ControllerBase
+    public class AuthController : ApiControllerBase
     {
         [HttpPost]
         [Route("signin")]

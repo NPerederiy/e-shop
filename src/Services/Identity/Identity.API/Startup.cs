@@ -13,14 +13,13 @@ namespace Identity.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors();
 
             // TODO: configure for production. 
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients());
-
-
         }
 
         /// <summary>
@@ -32,6 +31,13 @@ namespace Identity.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(c =>
+            {
+                c.AllowAnyHeader();
+                c.AllowAnyMethod();
+                c.AllowAnyOrigin();
+            });
 
             app.UseIdentityServer();
 
