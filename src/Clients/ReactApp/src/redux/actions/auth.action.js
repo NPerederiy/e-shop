@@ -8,7 +8,11 @@ export const updateSignUpData = (data) => ({
   payload: data,
 });
 
-export const SignIn = (data) => ({
+const SignIn = (data) => ({
+  type: UPDATE_SIGN_IN,
+  payload: data,
+});
+const SignUP = (data) => ({
   type: UPDATE_SIGN_IN,
   payload: data,
 });
@@ -35,6 +39,22 @@ export const fetchSignIn = (data) => async (dispatch) => {
     //TODO
     // set  email, password
     dispatch(SignIn(data?.data));
+  } catch (error) {
+    dispatch(failureFetch(error));
+  }
+};
+export const fetchSignUp = (data) => async (dispatch) => {
+  const { firstName, lastName, email, password } = data;
+
+  try {
+    const data = await axios.post(`${host}${endpoinst.signup}`, {
+      firstName,
+      lastName,
+      email,
+      password,
+    });
+    console.log(data);
+    dispatch(SignUP(data?.data));
   } catch (error) {
     dispatch(failureFetch(error));
   }
