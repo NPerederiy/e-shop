@@ -12,7 +12,7 @@ import { withRouter } from "react-router-dom";
 import Copyright from "../../components/copyright";
 import SignUpForm from "../../components/sign-up-form";
 import SignInForm from "../../components/sign-in-form";
-import { SignIn } from "../../../redux/actions/auth.action";
+import { SignIn, fetchSignIn } from "../../../redux/actions/auth.action";
 
 import "./authentication.scss";
 
@@ -60,7 +60,7 @@ const AuthPage = (props) => {
   };
 
   const signInAction = (email, password) => {
-    dispatch(SignIn({ email, password }));
+    dispatch(fetchSignIn({ email, password }));
     history.push("/");
   };
 

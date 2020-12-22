@@ -5,6 +5,7 @@ const initialState = {
   id: null,
   token: null,
   isAdmin: false,
+  isFatch: false,
   email: "",
   password: "",
 };
@@ -21,7 +22,7 @@ const UserData = (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: true,
-        ...action.payload,
+        isAdmin: action.payload,
       };
 
     case LOG_OUT:
