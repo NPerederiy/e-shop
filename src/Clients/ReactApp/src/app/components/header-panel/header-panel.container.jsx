@@ -1,8 +1,8 @@
 import React from "react";
-import HeaderPaner from "./header-panel";
 import { useSelector, useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
 
+import HeaderPaner from "./header-panel";
 import { clearBasket } from "../../../redux/actions/basket.action";
 
 const HeaderPanelContainer = (props) => {

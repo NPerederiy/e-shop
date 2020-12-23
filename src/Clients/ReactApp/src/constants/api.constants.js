@@ -1,8 +1,8 @@
 // export const CatalogApi = "http://localhost:5020";
-export const CatalogApi = "http://aa950b1e016e.ngrok.io";
+export const CatalogApi = "http://e8b25c4f2554.ngrok.io";
 
 // export const IdentityApi = "http://localhost:5040";
-export const IdentityApi = "http://8f9f70feab70.ngrok.io";
+export const IdentityApi = "http://0773faa60b45.ngrok.io";
 
 // export const OrderingApi = "http://localhost:5030";
 export const OrderingApi = "http://c6be20fa83df.ngrok.io";
