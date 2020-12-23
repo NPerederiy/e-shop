@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Ordering.Core.Application.Interfaces;
 using Ordering.Core.Domain.Entities;
+using Ordering.Core.Domain.Enums;
 
 namespace Ordering.Core.Application.Features.OrderFeatures.Commands
 {
@@ -20,7 +20,6 @@ namespace Ordering.Core.Application.Features.OrderFeatures.Commands
         public string Country { get; set; }
         public string ZipCode { get; set; }
         public decimal TotalPrice { get; set; }
-        public string Status { get; set; }
         public string PaymentToken { get; set; }
         public IEnumerable<OrderedItem> OrderedItems { get; set; }
 
@@ -46,7 +45,7 @@ namespace Ordering.Core.Application.Features.OrderFeatures.Commands
                     Country = command.Country,
                     ZipCode = command.ZipCode,
                     TotalPrice = command.TotalPrice,
-                    Status = command.Status,
+                    Status = OrderStatus.PendingReview,
                     PaymentToken = command.PaymentToken,
                     OrderedItems = command.OrderedItems
                 };

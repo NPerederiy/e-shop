@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Ordering.Core.Domain.Common;
+using Ordering.Core.Domain.Enums;
 
 namespace Ordering.Core.Domain.Entities
 {
@@ -15,7 +16,7 @@ namespace Ordering.Core.Domain.Entities
         public string Country { get; set; }
         public string ZipCode { get; set; }
         public decimal TotalPrice { get; set; }
-        public string Status { get; set; }
+        public OrderStatus Status { get; set; }
         public string PaymentToken { get; set; }
 
         public IEnumerable<OrderedItem> OrderedItems { get; set; }
