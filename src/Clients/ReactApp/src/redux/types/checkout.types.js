@@ -1,1 +1,2 @@
 export const UPDATE_CHECKOUT_LIST = "UPDATE_CHECKOUT_LIST";
+export const SET_ORDER = "SET_ORDER";

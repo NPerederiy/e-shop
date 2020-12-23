@@ -12,7 +12,6 @@ const CatalogPage = (props) => {
     appName,
     handlelogOut,
     isFatching,
-    catalog,
     displayedItems,
     setDisplayedItems,
     handleAddToCartAction,
