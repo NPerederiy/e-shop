@@ -1,5 +1,10 @@
 export const brands = [
   {
+    name: "All",
+    catalogItems: null,
+    id: "C29D5E70-1294-4B10-89DB-3728D5DA2EAF",
+  },
+  {
     name: "Razer",
     catalogItems: null,
     id: "b37aa03e-a0bb-4d13-d816-08d8a54d3fcd",
@@ -28,6 +33,11 @@ export const brands = [
 
 export const types = [
   {
+    name: "All",
+    catalogItems: null,
+    id: "F47AE008-142F-4FFB-996B-66D80B37AC3D",
+  },
+  {
     name: "Keyboards",
     catalogItems: null,
     id: "bec867d1-f248-4ad4-09b5-08d88a863ac5",
@@ -54,3 +64,6 @@ export const userMenu = [
     name: "Sign Out",
   },
 ];
+
+export const BRAND_ALL_ID = "C29D5E70-1294-4B10-89DB-3728D5DA2EAF";
+export const TYPES_ALL_ID = "F47AE008-142F-4FFB-996B-66D80B37AC3D";

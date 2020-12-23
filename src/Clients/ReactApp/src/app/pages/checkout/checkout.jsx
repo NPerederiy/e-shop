@@ -54,8 +54,10 @@ export default function CheckoutPage({
   appName,
   history,
   updateCheckoutListAction,
+  clearBasketAction,
   basket,
   checkout,
+  sendOrderAction,
 }) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -77,6 +79,13 @@ export default function CheckoutPage({
   const [cvv, setCvv] = React.useState("");
 
   const handleNext = () => {
+    if (activeStep === 2) {
+      sendOrderAction();
+      setTimeout(() => {
+        clearBasketAction();
+      }, 1000);
+    }
+
     setActiveStep(activeStep + 1);
     updateCheckoutListAction({
       firstName,
@@ -144,6 +153,14 @@ export default function CheckoutPage({
               <React.Fragment>
                 {activeStep === 0 ? (
                   <AddressForm
+                    firstName={firstName}
+                    lastName={lastName}
+                    address1={address1}
+                    address2={address2}
+                    city={city}
+                    state={state}
+                    zip={zip}
+                    country={country}
                     setFirstName={setFirstName}
                     setLastName={setLastName}
                     setAddress1={setAddress1}
@@ -158,6 +175,10 @@ export default function CheckoutPage({
                 )}
                 {activeStep === 1 ? (
                   <PaymentForm
+                    cardName={cardName}
+                    cardNumber={cardNumber}
+                    expDate={expDate}
+                    cvv={cvv}
                     setCardName={setCardName}
                     setCardNumber={setCardNumber}
                     setExpDate={setExpDate}

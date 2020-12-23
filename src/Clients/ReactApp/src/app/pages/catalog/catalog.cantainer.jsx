@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import { logOut } from "../../../redux/actions/auth.action";
 import {
@@ -9,6 +10,7 @@ import {
 } from "../../../redux/actions/applicationData.action";
 import Catalog from "./catalog";
 import { addProductToBasket } from "../../../redux/actions/basket.action";
+import { BRAND_ALL_ID, TYPES_ALL_ID } from "../../../constants/misc.constants";
 
 const CatalogContainer = (props) => {
   const dispatch = useDispatch();
@@ -27,20 +29,29 @@ const CatalogContainer = (props) => {
   }, [applicationData.catalog]);
 
   useEffect(() => {
-    setDisplayedItems([
-      ...applicationData.catalog.filter(
-        (item) => item.catalogTypeId === applicationData.types
-      ),
-    ]);
+    if (applicationData.types === TYPES_ALL_ID) {
+      setDisplayedItems(applicationData.catalog);
+    } else {
+      setDisplayedItems([
+        ...applicationData.catalog.filter(
+          (item) => item.catalogTypeId === applicationData.types
+        ),
+      ]);
+    }
+
     // eslint-disable-next-line
   }, [applicationData.types]);
 
   useEffect(() => {
-    setDisplayedItems([
-      ...applicationData.catalog.filter(
-        (item) => item.catalogBrandId === applicationData.brands
-      ),
-    ]);
+    if (applicationData.brands === BRAND_ALL_ID) {
+      setDisplayedItems(applicationData.catalog);
+    } else {
+      setDisplayedItems([
+        ...applicationData.catalog.filter(
+          (item) => item.catalogBrandId === applicationData.brands
+        ),
+      ]);
+    }
     // eslint-disable-next-line
   }, [applicationData.brands]);
 
@@ -75,4 +86,4 @@ const CatalogContainer = (props) => {
   );
 };
 
-export default CatalogContainer;
+export default withRouter(CatalogContainer);

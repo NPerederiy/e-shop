@@ -12,27 +12,31 @@ const CatalogPage = (props) => {
     appName,
     handlelogOut,
     isFatching,
-    catalog,
     displayedItems,
     setDisplayedItems,
     handleAddToCartAction,
     handleBrandSelection,
     handleCategorySelection,
+    history,
   } = props;
 
   const handleuserMenuSelection = (event) => {
     if (event.target.innerText === "Sign Out") {
       handlelogOut();
     }
+    if (event.target.innerText === "Management") {
+      history.push("/management");
+    }
   };
 
   const handleSearchAction = (event) => {
     let searchPattern = event.target.value.toLowerCase();
-    console.log(searchPattern);
 
-    if (catalog) {
+    if (displayedItems) {
       setDisplayedItems(
-        catalog.filter((x) => x.name.toLowerCase().includes(searchPattern))
+        displayedItems.filter((x) =>
+          x.name.toLowerCase().includes(searchPattern)
+        )
       );
     }
   };

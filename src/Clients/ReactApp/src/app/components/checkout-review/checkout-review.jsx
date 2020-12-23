@@ -78,8 +78,8 @@ export default function Review({
             {firstName} {lastName}
           </Typography>
           <Typography gutterBottom>
-            {`${address1} ,${address2} 
-            ${city} ,${state}`}
+            {`${address1},${address2} 
+            ${city},${state}`}
           </Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>

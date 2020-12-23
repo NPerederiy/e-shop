@@ -5,7 +5,7 @@ import {
   SET_BRAND,
   SET_CATEGORY,
 } from "../types/applicationData.types";
-import { host, endpoinst } from "../../constants/api.constants";
+import { CatalogApi, endpoinst } from "../../constants/api.constants";
 
 const axios = require("axios");
 
@@ -37,7 +37,7 @@ export const fetchDashboardData = () => async (dispatch) => {
   dispatch(requestApplicationData());
 
   try {
-    const data = await axios.get(`${host}${endpoinst.item}`);
+    const data = await axios.get(`${CatalogApi}${endpoinst.item}`);
 
     dispatch(updateApplicationData(data?.data));
   } catch (error) {
