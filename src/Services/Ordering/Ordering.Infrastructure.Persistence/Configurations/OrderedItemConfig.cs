@@ -22,6 +22,9 @@ namespace Ordering.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.OrderId)
                    .IsRequired();
+
+            builder.Property(x => x.ProductId)
+                   .IsRequired();
         }
     }
 }
