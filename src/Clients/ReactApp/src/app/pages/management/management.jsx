@@ -332,10 +332,19 @@ const ManagementPage = ({ appName, history, applicationData,updateList }) => {
   };
 
   const handleDelete = () => {
+   try {
     deleteItem.forEach(async({id})=>{
-       await axios.delete(`${CatalogApi}${endpoinst.item}/${id}`);
-       console.log('delete item');
-    })  
+      await axios.delete(`${CatalogApi}${endpoinst.item}/${id}`);
+   }); 
+
+   updateList()
+   } catch (error) {
+     
+    alert('error, delete item')
+    updateList()
+   } 
+
+  
   }
 
   return (
