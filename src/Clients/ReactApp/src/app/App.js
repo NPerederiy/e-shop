@@ -28,8 +28,7 @@ const App = (props) => {
             <CheckoutPage appName={appName} {...props} />
           </Route>
           <Route path="/management">
-            {/* {isAdmin ? ( */}
-            {true ? (
+            {isAdmin ? (
               <ManagementPage appName={appName} {...props} />
             ) : (
               <Redirect to="/" />
