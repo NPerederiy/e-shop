@@ -26,8 +26,10 @@ import { withRouter } from "react-router-dom";
 
 import "./management.scss";
 import { brands } from "../../../constants/misc.constants";
-
+import {CatalogApi,endpoinst} from '../../../constants/api.constants';
 import Modal from "./modal";
+
+const axios = require("axios");
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -161,7 +163,7 @@ const useToolbarStyles = makeStyles((theme) => ({
 
 const EnhancedTableToolbar = (props) => {
   const classes = useToolbarStyles();
-  const { numSelected } = props;
+  const { numSelected ,handleDelete} = props;
 
   return (
     <Toolbar
@@ -191,7 +193,7 @@ const EnhancedTableToolbar = (props) => {
 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
-          <IconButton aria-label="delete">
+          <IconButton aria-label="delete" onClick={handleDelete}>
             <DeleteIcon />
           </IconButton>
         </Tooltip>
@@ -263,6 +265,7 @@ const ManagementPage = ({ appName, history, applicationData,updateList }) => {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [open, setOpen] = React.useState(false);
   const [rowModal, setRowModal] = React.useState({});
+  const [deleteItem, setDeleteItem] = React.useState([]);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -279,15 +282,21 @@ const ManagementPage = ({ appName, history, applicationData,updateList }) => {
     setSelected([]);
   };
 
-  const handleClick = (event, name) => {
+  const handleClick = (event, name,row) => {
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
 
     if (selectedIndex === -1) {
+
+      setDeleteItem([...deleteItem,row]);
       newSelected = newSelected.concat(selected, name);
     } else if (selectedIndex === 0) {
+      setDeleteItem([]);
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
+      const filterList = deleteItem.filter(el=>el.id !== row.id);
+      setDeleteItem(filterList);
+
       newSelected = newSelected.concat(selected.slice(0, -1));
     } else if (selectedIndex > 0) {
       newSelected = newSelected.concat(
@@ -321,6 +330,14 @@ const ManagementPage = ({ appName, history, applicationData,updateList }) => {
     setRowModal({ ...row, ident: ident });
     setOpen(true);
   };
+
+  const handleDelete = () => {
+    deleteItem.forEach(async({id})=>{
+       await axios.delete(`${CatalogApi}${endpoinst.item}/${id}`);
+       console.log('delete item');
+    })  
+  }
+
   return (
     <>
       <AppBar position="static" className="app-header-panel stick-to-top">
@@ -342,7 +359,7 @@ const ManagementPage = ({ appName, history, applicationData,updateList }) => {
 
       <div className={classes.root}>
         <Paper className={classes.paper}>
-          <EnhancedTableToolbar numSelected={selected.length} />
+          <EnhancedTableToolbar numSelected={selected.length} handleDelete={handleDelete} />
           <TableContainer>
             <Table
               className={classes.table}
@@ -378,7 +395,7 @@ const ManagementPage = ({ appName, history, applicationData,updateList }) => {
                         <TableCell padding="checkbox">
                           <Checkbox
                             onClick={(event) => {
-                              handleClick(event, row.name);
+                              handleClick(event, row.name,row);
                             }}
                             checked={isItemSelected}
                             inputProps={{ "aria-labelledby": labelId }}
