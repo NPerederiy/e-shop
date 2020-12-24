@@ -234,7 +234,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ManagementPage = ({ appName, history, applicationData }) => {
+const ManagementPage = ({ appName, history, applicationData,updateList }) => {
   const [rows, setRow] = useState([]);
 
   useEffect(() => {
@@ -252,7 +252,7 @@ const ManagementPage = ({ appName, history, applicationData }) => {
     });
     setRow(catalog);
     // eslint-disable-next-line
-  }, []);
+  }, [applicationData]);
 
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
@@ -325,7 +325,7 @@ const ManagementPage = ({ appName, history, applicationData }) => {
     <>
       <AppBar position="static" className="app-header-panel stick-to-top">
         <Toolbar>
-          <Modal open={open} setOpen={setOpen} rowModal={rowModal} />
+          <Modal open={open} setOpen={setOpen} rowModal={rowModal}  updateList={updateList}/>
           <Typography
             onClick={() => {
               history.push("/");

@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function TransitionsModal(props) {
-  const { open, setOpen, rowModal } = props;
+  const { open, setOpen, rowModal,updateList } = props;
   const { ident, id } = rowModal;
   const [inputValue, setInputValue] = useState("");
   useEffect(() => {
@@ -88,6 +88,8 @@ export default function TransitionsModal(props) {
                     ...rowModal,
                     [ident]: inputValue,
                   });
+
+                   updateList();
 
                   handleClose();
                 } catch (error) {
