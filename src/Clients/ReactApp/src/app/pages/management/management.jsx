@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -25,26 +25,9 @@ import FilterListIcon from "@material-ui/icons/FilterList";
 import { withRouter } from "react-router-dom";
 
 import "./management.scss";
+import { brands } from "../../../constants/misc.constants";
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData("Cupcake", "test", 3.7, 67, 4.3),
-  createData("Donut", "a100", 25.0, 51, 4.9),
-  createData("Eclair", 1, 16.0, 24, 6.0),
-  createData("Frozen yoghurt", 2, 6.0, 24, 4.0),
-  createData("Gingerbread", 10, 16.0, 49, 3.9),
-  createData("Honeycomb", 11, 3.2, 87, 6.5),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Jelly Bean", 375, 0.0, 94, 0.0),
-  createData("KitKat", 518, 26.0, 65, 7.0),
-  createData("Lollipop", 392, 0.2, 98, 0.0),
-  createData("Marshmallow", 318, 0, 81, 2.0),
-  createData("Nougat", 360, 19.0, 9, 37.0),
-  createData("Oreo", 437, 18.0, 63, 4.0),
-];
+import Modal from "./modal";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -77,12 +60,21 @@ const headCells = [
     id: "name",
     numeric: false,
     disablePadding: true,
-    label: "Dessert (100g serving)",
+    label: "Name",
   },
-  { id: "calories", numeric: true, disablePadding: false, label: "Calories" },
-  { id: "fat", numeric: true, disablePadding: false, label: "Fat (g)" },
-  { id: "carbs", numeric: true, disablePadding: false, label: "Carbs (g)" },
-  { id: "protein", numeric: true, disablePadding: false, label: "Protein (g)" },
+  { id: "price", numeric: true, disablePadding: false, label: "Price (UAH)" },
+  {
+    id: "itemBrend",
+    numeric: true,
+    disablePadding: false,
+    label: "Brand Name",
+  },
+  {
+    id: "pictureUri",
+    numeric: true,
+    disablePadding: false,
+    label: "pictureUri",
+  },
 ];
 
 function EnhancedTableHead(props) {
@@ -95,6 +87,7 @@ function EnhancedTableHead(props) {
     rowCount,
     onRequestSort,
   } = props;
+
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
@@ -241,14 +234,35 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ManagementPage = ({ appName, history }) => {
+const ManagementPage = ({ appName, history, applicationData }) => {
+  const [rows, setRow] = useState([]);
+
+  useEffect(() => {
+    const catalog = applicationData.catalog.map((item) => {
+      const itemBrend = brands.find((it) => it.id === item.catalogBrandId);
+
+      return {
+        ...item,
+        name: item.name,
+        price: item.price,
+        itemBrend: itemBrend.name,
+        pictureUri: item.pictureUri,
+        id: item.id,
+      };
+    });
+    setRow(catalog);
+    // eslint-disable-next-line
+  }, []);
+
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("calories");
+  const [orderBy, setOrderBy] = React.useState("price");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [open, setOpen] = React.useState(false);
+  const [rowModal, setRowModal] = React.useState({});
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -303,10 +317,15 @@ const ManagementPage = ({ appName, history }) => {
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
+  const handleOpenModal = (event, row, ident) => {
+    setRowModal({ ...row, ident: ident });
+    setOpen(true);
+  };
   return (
     <>
       <AppBar position="static" className="app-header-panel stick-to-top">
         <Toolbar>
+          <Modal open={open} setOpen={setOpen} rowModal={rowModal} />
           <Typography
             onClick={() => {
               history.push("/");
@@ -350,7 +369,6 @@ const ManagementPage = ({ appName, history }) => {
                     return (
                       <TableRow
                         hover
-                        onClick={(event) => handleClick(event, row.name)}
                         role="checkbox"
                         aria-checked={isItemSelected}
                         tabIndex={-1}
@@ -359,6 +377,9 @@ const ManagementPage = ({ appName, history }) => {
                       >
                         <TableCell padding="checkbox">
                           <Checkbox
+                            onClick={(event) => {
+                              handleClick(event, row.name);
+                            }}
                             checked={isItemSelected}
                             inputProps={{ "aria-labelledby": labelId }}
                           />
@@ -368,13 +389,45 @@ const ManagementPage = ({ appName, history }) => {
                           id={labelId}
                           scope="row"
                           padding="none"
+                          onClick={(event) => {
+                            handleOpenModal(event, row, "name");
+                          }}
                         >
                           {row.name}
                         </TableCell>
-                        <TableCell align="right">{row.calories}</TableCell>
-                        <TableCell align="right">{row.fat}</TableCell>
-                        <TableCell align="right">{row.carbs}</TableCell>
-                        <TableCell align="right">{row.protein}</TableCell>
+                        <TableCell
+                          onClick={(event) => {
+                            handleOpenModal(event, row, "price");
+                          }}
+                          align="right"
+                        >
+                          {row.price}
+                        </TableCell>
+                        <TableCell
+                          onClick={(event) => {
+                            handleOpenModal(event, row, "itemBrend");
+                          }}
+                          align="right"
+                        >
+                          {row.itemBrend}
+                        </TableCell>
+                        <TableCell
+                          onClick={(event) => {
+                            handleOpenModal(event, row, "pictureUri");
+                          }}
+                          align="right"
+                        >
+                          <img
+                            style={{
+                              maxWidth: "80px",
+                              maxHeight: "80px",
+                              margin: "0 auto",
+                              display: "block",
+                            }}
+                            src={row.pictureUri}
+                            alt="product"
+                          />
+                        </TableCell>
                       </TableRow>
                     );
                   })}

@@ -1,3 +1,3 @@
-import ManagementPage from './management';
+import ManagementPage from "./management.container";
 
 export default ManagementPage;
